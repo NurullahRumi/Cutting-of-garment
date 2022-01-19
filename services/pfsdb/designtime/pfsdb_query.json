@@ -1,0 +1,427 @@
+{
+  "QryReturnCallPage" : {
+    "name" : "QryReturnCallPage",
+    "description" : "QryReturnCallPage",
+    "version" : "V2",
+    "queryString" : "Select SY9200PK0.sproc_call_wmakerapp(:pWmprogid, :pParamList) progwmurl\nfrom dual",
+    "countQueryString" : "select count(*) from (Select SY9200PK0.sproc_call_wmakerapp(:pWmprogid, :pParamList) progwmurl\nfrom dual) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "pWmprogid",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "FD1000W03",
+      "required" : false
+    }, {
+      "name" : "pParamList",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "xx",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryReturnCallPageResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "PROGWMURL",
+        "fieldName" : "progwmurl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qryCU220_Trftyp" : {
+    "name" : "qryCU220_Trftyp",
+    "description" : "get CU220 Trftyp",
+    "version" : "V2",
+    "queryString" : "Select count(*) trftyp1\n    from   cut700\n    where  sdyejob = :p_Sdyejob\n    and ddyejob=:p_Ddyejob\n    and sfabseq=:p_Sfabseq\n    and  trftyp = 'C'",
+    "countQueryString" : "select count(*) from (Select count(*) trftyp1\n    from   cut700\n    where  sdyejob = :p_Sdyejob\n    and ddyejob=:p_Ddyejob\n    and sfabseq=:p_Sfabseq\n    and  trftyp = 'C') wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "p_Sdyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002715265",
+      "required" : false
+    }, {
+      "name" : "p_Ddyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002722683",
+      "required" : false
+    }, {
+      "name" : "p_Sfabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryCu220TrftypResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "TRFTYP1",
+        "fieldName" : "trftyp1",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qryCutlcn" : {
+    "name" : "qryCutlcn",
+    "description" : "query list of cut units",
+    "version" : "V2",
+    "queryString" : "Select lcncod\nfrom rft330\nwhere scncod = 'CU'\nand lcnsts is null",
+    "countQueryString" : "select count(*) from (Select lcncod\nfrom rft330\nwhere scncod = 'CU'\nand lcnsts is null) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryCutlcnResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "LCNCOD",
+        "fieldName" : "lcncod",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qryGetCUTFAB" : {
+    "name" : "qryGetCUTFAB",
+    "description" : "Get CUTFAB",
+    "version" : "V2",
+    "queryString" : "select count(*) cntHalted\n\tfrom ort815\n\twhere ort815.ordnum = :pOrdnum\n\tand ort815.clrseqg = :pClrseqg\n\tand ort815.gmtseq = :pGmtseq\n\tand ort815.proccode = 'CUTFAB'",
+    "countQueryString" : "select count(*) from (select count(*) cntHalted\n\tfrom ort815\n\twhere ort815.ordnum = :pOrdnum\n\tand ort815.clrseqg = :pClrseqg\n\tand ort815.gmtseq = :pGmtseq\n\tand ort815.proccode = 'CUTFAB') wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1304718A",
+      "required" : false
+    }, {
+      "name" : "pClrseqg",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "4",
+      "required" : false
+    }, {
+      "name" : "pGmtseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryGetCutfabResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "CNTHALTED",
+        "fieldName" : "cnthalted",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qryGetItemcod" : {
+    "name" : "qryGetItemcod",
+    "description" : "Get Item cod",
+    "version" : "V2",
+    "queryString" : "select itemcod\n\t\tfrom rft850\n\t\twhere lovfld = 'FABCONST'\n\t\tand sts is null",
+    "countQueryString" : "select count(*) from (select itemcod\n\t\tfrom rft850\n\t\twhere lovfld = 'FABCONST'\n\t\tand sts is null) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryGetItemcodResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "ITEMCOD",
+        "fieldName" : "itemcod",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qryLectraSze" : {
+    "name" : "qryLectraSze",
+    "description" : "Get Lectra Sze",
+    "version" : "V2",
+    "queryString" : "select count(*) LectraSze\n  from cut905\n  where dyejob = :p_dyejob\n  and gmtseq = :p_gmtseq\n  and clrseqg = :p_clrseqg\n  and fabseq = :p_fabseq\n  AND cutseq = :p_cutseq\n  and ordnum = :p_ordnum\n  and lectcod is not null\n  and szeratio is not null",
+    "countQueryString" : "select count(*) from (select count(*) LectraSze\n  from cut905\n  where dyejob = :p_dyejob\n  and gmtseq = :p_gmtseq\n  and clrseqg = :p_clrseqg\n  and fabseq = :p_fabseq\n  AND cutseq = :p_cutseq\n  and ordnum = :p_ordnum\n  and lectcod is not null\n  and szeratio is not null) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "p_dyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002692868",
+      "required" : false
+    }, {
+      "name" : "p_gmtseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false
+    }, {
+      "name" : "p_clrseqg",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    }, {
+      "name" : "p_fabseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    }, {
+      "name" : "p_cutseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    }, {
+      "name" : "p_ordnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryLectraSzeResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "LECTRASZE",
+        "fieldName" : "lectrasze",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qrySzeDes" : {
+    "name" : "qrySzeDes",
+    "description" : "Get Size Des",
+    "version" : "V2",
+    "queryString" : "select min(szedes) szedes\n\tfrom cut905\n\twhere cut905.dyejob =:pDyejob\n\tand cut905.gmtseq = :pGmtseq\n\tand cut905.clrseqg = :pClrseqg\n\tand cut905.fabseq = :pFabseq\n\tand cut905.cutseq = :pCutseq\n\tand cut905.lectcod is not null\n\tand cut905.szeratio is null",
+    "countQueryString" : "select count(*) from (select min(szedes) szedes\n\tfrom cut905\n\twhere cut905.dyejob =:pDyejob\n\tand cut905.gmtseq = :pGmtseq\n\tand cut905.clrseqg = :pClrseqg\n\tand cut905.fabseq = :pFabseq\n\tand cut905.cutseq = :pCutseq\n\tand cut905.lectcod is not null\n\tand cut905.szeratio is null) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "pDyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002692868",
+      "required" : false
+    }, {
+      "name" : "pGmtseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false
+    }, {
+      "name" : "pClrseqg",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    }, {
+      "name" : "pFabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    }, {
+      "name" : "pCutseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QrySzeDesResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "SZEDES",
+        "fieldName" : "szedes",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "qryUserLocation" : {
+    "name" : "qryUserLocation",
+    "description" : "query user location",
+    "version" : "V2",
+    "queryString" : "select lcncod, scncod\nfrom   rft160\nwhere  usrid=:pUsrid",
+    "countQueryString" : "select count(*) from (select lcncod, scncod\nfrom   rft160\nwhere  usrid=:pUsrid) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "pUsrid",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "D004",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.mu.cmt.pfs.pfsdb.models.query.QryUserLocationResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "LCNCOD",
+        "fieldName" : "lcncod",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "SCNCOD",
+        "fieldName" : "scncod",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

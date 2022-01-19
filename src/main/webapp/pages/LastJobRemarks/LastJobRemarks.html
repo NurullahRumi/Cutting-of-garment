@@ -1,0 +1,224 @@
+<wm-page data-ng-controller="LastJobRemarksPageController" pagetitle="Last Job Remarks" name="page1"> 
+    <wm-header content="header" name="header1"> 
+        <wm-param name="pTitle" value="bind:Variables.statPrgName.dataSet.dataValue" type="string"></wm-param> 
+    </wm-header> 
+    <wm-top-nav name="top_nav1" content="topnav"> 
+        <wm-param name="p_param" value="bind:pageParams.pOrdnum" type="string"></wm-param> 
+    </wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-layoutgrid name="layoutgrid8"> 
+                <wm-gridrow name="gridrow8"> 
+                    <wm-gridcolumn name="gridcolumn22" columnwidth="8"> 
+                        <wm-form errormessage="" captionposition="top" title="" enctype="application/x-www-form-urlencoded" method="get" captionalign="left" name="form1" width="800" postmessage="" validationtype="none"> 
+                            <wm-layoutgrid columns="1" name="layoutgrid1"> 
+                                <wm-gridrow name="gridrow1"> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn1"> 
+                                        <wm-form-field defaultvalue="bind:pageParams.pOrdnum" name="pORDNUM" readonly="false" displayname="Order Number" key="pORDNUM" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn4"> 
+                                        <wm-form-field name="pCLRSEQ" readonly="false" displayname="Colour" key="pCLRSEQ" type="integer" show="true" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn5"> 
+                                        <wm-form-field name="pGMTSEQ" readonly="false" displayname="Garment" key="pGMTSEQ" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn6"> 
+                                        <wm-buttongroup horizontalalign="left" class="form-action col-md-12" name="buttongroup1"> 
+                                            <wm-button caption="Reset" type="reset" class="btn-secondary" name="button1" margin="15px unset unset unset" on-click="button1Click($event, $scope)"></wm-button> 
+                                            <wm-button caption="Query" type="submit" class="btn-primary" name="button3" margin="15px unset unset unset" on-click="button3Click($event, $scope)"></wm-button> 
+                                        </wm-buttongroup> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-form> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn23" columnwidth="4"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow9_1"> 
+                    <wm-gridcolumn name="gridcolumn24_1" columnwidth="9"> 
+                        <wm-panel class="panel-primary" name="panel5" iconclass="" autoclose="outsideClick" title="Order Details"> 
+                            <wm-table pagesize="3" title="" dataset="bind:Variables.svProcCU1000PK0_LastJobRemarks.dataSet.poutJobRemarks" navigation="Classic" name="grid1" gridfirstrowselect="true" spacing="condensed"> 
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Order No" binding="ordnum"></wm-table-column> 
+                                <wm-table-column-group caption="Color" name="group"> 
+                                    <wm-table-column readonly="false" show="true" type="byte" edit-widget-type="number" textalignment="right" width="40px" caption="Seq" binding="clrseq"></wm-table-column> 
+                                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Clr Description" binding="wclrdes"></wm-table-column> 
+                                </wm-table-column-group> 
+                                <wm-table-column-group caption="Garment" name="group1"> 
+                                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="40px" caption="Seq" binding="gmtseq"></wm-table-column> 
+                                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Gmt Description" binding="wgmtdes"></wm-table-column> 
+                                </wm-table-column-group> 
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Client" binding="wclicod"></wm-table-column> 
+                                <wm-table-column readonly="false" show="true" formatpattern="toDate" datepattern="dd/MM/yyyy" type="datetime" edit-widget-type="datetime" caption="Ship Date" binding="wsshpdat"></wm-table-column> 
+                                <wm-table-column readonly="false" show="true" type="long" edit-widget-type="number" textalignment="right" caption="Pck unt" binding="wpckunt"></wm-table-column> 
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Print" binding="wprtpan"></wm-table-column> 
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Emb" binding="wpannum"></wm-table-column> 
+                            </wm-table> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn25_1" columnwidth="3"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow12"> 
+                    <wm-gridcolumn name="gridcolumn29_2" columnwidth="6"> 
+                        <wm-panel margin="unset 10px unset unset" show="true" iconclass="" autoclose="outsideClick" title="Cutting" name="panel2" class="panel-info" collapsible="true" closable="false" enablefullscreen="false"> 
+                            <wm-layoutgrid name="layoutgrid4"> 
+                                <wm-gridrow name="gridrow5"> 
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn16"> 
+                                        <wm-textarea readonly="false" name="txtCUTREM" margin="unset unset 10px unset" width="800" height="50" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutrem" maxchars="499"></wm-textarea> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                            <wm-layoutgrid name="layoutgrid2"> 
+                                <wm-gridrow name="gridrow2"> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn5_1"> 
+                                        <wm-layoutgrid name="layoutgrid11"> 
+                                            <wm-gridrow name="gridrow20"> 
+                                                <wm-gridcolumn name="gridcolumn47" columnwidth="6"> 
+                                                    <wm-label class="col-md-3 control-label" name="label4" caption="Cut Unit" width="70" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                                                </wm-gridcolumn> 
+                                                <wm-gridcolumn name="gridcolumn48" columnwidth="6"> 
+                                                    <wm-text readonly="false" on-change="txtCUTLCNChange($event, $scope, newVal, oldVal)" updateon="default" name="txtCUTLCN" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutlcn" maxchars="6"></wm-text> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn9"> 
+                                        <wm-layoutgrid name="layoutgrid12"> 
+                                            <wm-gridrow name="gridrow22"> 
+                                                <wm-gridcolumn name="gridcolumn51" columnwidth="6"> 
+                                                    <wm-label class="col-md-3 control-label" name="label5" caption="Cut Status" width="70" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                                                </wm-gridcolumn> 
+                                                <wm-gridcolumn name="gridcolumn52" columnwidth="6"> 
+                                                    <wm-select readonly="false" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutsts" displayfield="itemdes" datafield="itemcod" dataset="bind:Variables.svProcCu1000pK0_get_lastremark_cuts.dataSet.poutCutsts" name="selectCUTSTS"></wm-select> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn11"> 
+                                        <wm-layoutgrid name="layoutgrid9"> 
+                                            <wm-gridrow name="gridrow16_1"> 
+                                                <wm-gridcolumn horizontalalign="right" name="gridcolumn35_2" columnwidth="2"> 
+                                                    <wm-label width="100%" show="bind:(Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutstsdat ==null)?false:true" class="col-md-3 control-label" name="label8" caption="Set By :" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                                                </wm-gridcolumn> 
+                                                <wm-gridcolumn name="gridcolumn36_2" columnwidth="3"> 
+                                                    <wm-label padding="unset 0.5em" name="label10" caption="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutstsid"></wm-label> 
+                                                </wm-gridcolumn> 
+                                                <wm-gridcolumn horizontalalign="right" name="gridcolumn44" columnwidth="2"> 
+                                                    <wm-label width="100%" show="bind:(Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutstsdat ==null)?false:true" class="col-md-3 control-label" name="label9" caption="On :" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                                                </wm-gridcolumn> 
+                                                <wm-gridcolumn name="gridcolumn45" columnwidth="5"> 
+                                                    <wm-label padding="unset 0.5em" name="label11" caption="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutstsdat | toDate: 'dd-MMM-yyyy HH:mm:ss'"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow17"> 
+                                    <wm-gridcolumn horizontalalign="right" name="gridcolumn38" columnwidth="3"> 
+                                        <wm-checkbox uncheckedvalue="N" checkedvalue="Y" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutexc" caption="Exclude in Last Job Report" name="chkBoxCUTEXC"></wm-checkbox> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn55" columnwidth="3"></wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn39" columnwidth="6"> 
+                                        <wm-layoutgrid name="layoutgrid10"> 
+                                            <wm-gridrow name="gridrow18"> 
+                                                <wm-gridcolumn name="gridcolumn41" columnwidth="5"> 
+                                                    <wm-label show="true" caption="bind:'Excluded by : '+Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutusrid" name="label14" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                                </wm-gridcolumn> 
+                                                <wm-gridcolumn name="gridcolumn46" columnwidth="7"> 
+                                                    <wm-label caption="Date :" name="label22" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                                    <wm-label caption="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].cutusrdat | toDate: 'dd-MMM-yyyy HH:mm:ss'" name="label21" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn height="200" name="gridcolumn30" columnwidth="6"> 
+                        <wm-panel margin="unset unset unset 10px" iconclass="" autoclose="outsideClick" title="MakeUp" name="panel2_1" class="panel-info" collapsible="true"> 
+                            <wm-layoutgrid name="layoutgrid5"> 
+                                <wm-gridrow name="gridrow7"> 
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn20"> 
+                                        <wm-textarea readonly="false" name="txtMAKREM" width="800" height="50" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].makrem" maxchars="499"></wm-textarea> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow16"> 
+                                    <wm-gridcolumn name="gridcolumn36_1" columnwidth="4"> 
+                                        <wm-checkbox datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].makexc" readonly="false" caption="Exclude in Last Job Report" name="chkBoxMAKEXC" checkedvalue="Y" uncheckedvalue="N"></wm-checkbox> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn37" columnwidth="4"> 
+                                        <wm-label show="true" caption="bind:'Excluded by : '+Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].makusrid" name="label17_2" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn33_1" columnwidth="4"> 
+                                        <wm-label show="true" caption="Date :" name="label15" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                        <wm-label caption="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].makusrdat | toDate: 'dd-MMM-yyyy HH:mm:ss'" name="label16" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow13"> 
+                    <wm-gridcolumn name="gridcolumn31" columnwidth="6"> 
+                        <wm-panel margin="unset 10px unset unset" iconclass="" autoclose="outsideClick" title="UnLoading" name="panel3" class="panel-info" collapsible="true"> 
+                            <wm-layoutgrid name="layoutgrid6"> 
+                                <wm-gridrow name="gridrow9"> 
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn24"> 
+                                        <wm-textarea readonly="false" width="800" name="txtULDREM" height="50" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].uldrem" maxchars="499"></wm-textarea> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow14"> 
+                                    <wm-gridcolumn name="gridcolumn33" columnwidth="4"> 
+                                        <wm-checkbox datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].uldexc" readonly="false" caption="Exclude in Last Job Report" name="chkBoxULDEXC" checkedvalue="Y" uncheckedvalue="N"></wm-checkbox> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn34" columnwidth="4"> 
+                                        <wm-label show="true" caption="bind:'Excluded By  : '+Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].uldusrid" name="label17_1" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn34_1" columnwidth="4"> 
+                                        <wm-label show="true" caption="Date :" name="label18_2" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                        <wm-label caption="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].uldusrdat | toDate: 'dd-MMM-yyyy HH:mm:ss'" name="label17" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn32" columnwidth="6"> 
+                        <wm-panel margin="unset unset unset 10px" iconclass="" autoclose="outsideClick" title="Embroidery" name="panel4" class="panel-info" collapsible="true"> 
+                            <wm-layoutgrid name="layoutgrid7"> 
+                                <wm-gridrow name="gridrow11"> 
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn28"> 
+                                        <wm-textarea readonly="false" width="800" name="txtEMBREM" height="50" datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].embrem" maxchars="499"></wm-textarea> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow15"> 
+                                    <wm-gridcolumn name="gridcolumn35" columnwidth="4"> 
+                                        <wm-checkbox datavalue="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].embexc" readonly="false" caption="Exclude in Last Job Report" name="chkBoxEMBEXC" checkedvalue="Y" uncheckedvalue="N"></wm-checkbox> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn36" columnwidth="4"> 
+                                        <wm-label show="true" caption="bind:'Excluded By  :  '+Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].embusrid" name="label18" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn name="gridcolumn35_1" columnwidth="4"> 
+                                        <wm-label show="true" caption="Date :" name="label19_1" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                        <wm-label caption="bind:Variables.svCU100PK0_GetLastRemDet.dataSet.poutDetailBlock[$i].embusrdat | toDate: 'dd-MMM-yyyy HH:mm:ss'" name="label20" padding="1em 0.5em unset 0.5em"></wm-label> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+            <wm-layoutgrid name="layoutgrid3"> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn12_1"></wm-gridcolumn> 
+                    <wm-gridcolumn horizontalalign="right" columnwidth="6" name="gridcolumn13_1"> 
+                        <wm-button accessroles="UPDLASTJOBREMARKS" class="btn-default" caption="Save" type="button" margin="unset 0.5em" name="btnSave" width="100" on-click="btnSaveClick($event, $scope)"></wm-button> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer height="10" content="footer" name="footer1"></wm-footer> 
+    <wm-view class="dialog-view" name="view2"> 
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog> 
+    </wm-view> 
+</wm-page>

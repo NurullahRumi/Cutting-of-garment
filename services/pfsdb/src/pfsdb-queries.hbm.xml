@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="QryReturnCallPage">
+        <![CDATA[
+        Select SY9200PK0.sproc_call_wmakerapp(:pWmprogid, :pParamList) progwmurl
+from dual
+        ]]>
+    <query-param name="pWmprogid" type="java.lang.String"/>
+    <query-param name="pParamList" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="QryReturnCallPage__count">
+        <![CDATA[
+        select count(*) from (Select SY9200PK0.sproc_call_wmakerapp(:pWmprogid, :pParamList) progwmurl
+from dual) wmTempTable
+        ]]>
+    <query-param name="pWmprogid" type="java.lang.String"/>
+    <query-param name="pParamList" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryLectraSze">
+        <![CDATA[
+        select count(*) LectraSze
+  from cut905
+  where dyejob = :p_dyejob
+  and gmtseq = :p_gmtseq
+  and clrseqg = :p_clrseqg
+  and fabseq = :p_fabseq
+  AND cutseq = :p_cutseq
+  and ordnum = :p_ordnum
+  and lectcod is not null
+  and szeratio is not null
+        ]]>
+    <query-param name="p_dyejob" type="java.lang.String"/>
+    <query-param name="p_gmtseq" type="java.lang.String"/>
+    <query-param name="p_clrseqg" type="java.lang.String"/>
+    <query-param name="p_fabseq" type="java.lang.String"/>
+    <query-param name="p_cutseq" type="java.lang.String"/>
+    <query-param name="p_ordnum" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryLectraSze__count">
+        <![CDATA[
+        select count(*) from (select count(*) LectraSze
+  from cut905
+  where dyejob = :p_dyejob
+  and gmtseq = :p_gmtseq
+  and clrseqg = :p_clrseqg
+  and fabseq = :p_fabseq
+  AND cutseq = :p_cutseq
+  and ordnum = :p_ordnum
+  and lectcod is not null
+  and szeratio is not null) wmTempTable
+        ]]>
+    <query-param name="p_dyejob" type="java.lang.String"/>
+    <query-param name="p_gmtseq" type="java.lang.String"/>
+    <query-param name="p_clrseqg" type="java.lang.String"/>
+    <query-param name="p_fabseq" type="java.lang.String"/>
+    <query-param name="p_cutseq" type="java.lang.String"/>
+    <query-param name="p_ordnum" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryCutlcn">
+        <![CDATA[
+        Select lcncod
+from rft330
+where scncod = 'CU'
+and lcnsts is null
+        ]]>
+    </sql-query>
+
+    <sql-query name="qryCutlcn__count">
+        <![CDATA[
+        select count(*) from (Select lcncod
+from rft330
+where scncod = 'CU'
+and lcnsts is null) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="qryGetCUTFAB">
+        <![CDATA[
+        select count(*) cntHalted
+	from ort815
+	where ort815.ordnum = :pOrdnum
+	and ort815.clrseqg = :pClrseqg
+	and ort815.gmtseq = :pGmtseq
+	and ort815.proccode = 'CUTFAB'
+        ]]>
+    <query-param name="pOrdnum" type="java.lang.String"/>
+    <query-param name="pClrseqg" type="java.lang.Integer"/>
+    <query-param name="pGmtseq" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryGetCUTFAB__count">
+        <![CDATA[
+        select count(*) from (select count(*) cntHalted
+	from ort815
+	where ort815.ordnum = :pOrdnum
+	and ort815.clrseqg = :pClrseqg
+	and ort815.gmtseq = :pGmtseq
+	and ort815.proccode = 'CUTFAB') wmTempTable
+        ]]>
+    <query-param name="pOrdnum" type="java.lang.String"/>
+    <query-param name="pClrseqg" type="java.lang.Integer"/>
+    <query-param name="pGmtseq" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryCU220_Trftyp">
+        <![CDATA[
+        Select count(*) trftyp1
+    from   cut700
+    where  sdyejob = :p_Sdyejob
+    and ddyejob=:p_Ddyejob
+    and sfabseq=:p_Sfabseq
+    and  trftyp = 'C'
+        ]]>
+    <query-param name="p_Sdyejob" type="java.lang.String"/>
+    <query-param name="p_Ddyejob" type="java.lang.String"/>
+    <query-param name="p_Sfabseq" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="qryCU220_Trftyp__count">
+        <![CDATA[
+        select count(*) from (Select count(*) trftyp1
+    from   cut700
+    where  sdyejob = :p_Sdyejob
+    and ddyejob=:p_Ddyejob
+    and sfabseq=:p_Sfabseq
+    and  trftyp = 'C') wmTempTable
+        ]]>
+    <query-param name="p_Sdyejob" type="java.lang.String"/>
+    <query-param name="p_Ddyejob" type="java.lang.String"/>
+    <query-param name="p_Sfabseq" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="qrySzeDes">
+        <![CDATA[
+        select min(szedes) szedes
+	from cut905
+	where cut905.dyejob =:pDyejob
+	and cut905.gmtseq = :pGmtseq
+	and cut905.clrseqg = :pClrseqg
+	and cut905.fabseq = :pFabseq
+	and cut905.cutseq = :pCutseq
+	and cut905.lectcod is not null
+	and cut905.szeratio is null
+        ]]>
+    <query-param name="pDyejob" type="java.lang.String"/>
+    <query-param name="pGmtseq" type="java.lang.String"/>
+    <query-param name="pClrseqg" type="java.lang.Integer"/>
+    <query-param name="pFabseq" type="java.lang.Integer"/>
+    <query-param name="pCutseq" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="qrySzeDes__count">
+        <![CDATA[
+        select count(*) from (select min(szedes) szedes
+	from cut905
+	where cut905.dyejob =:pDyejob
+	and cut905.gmtseq = :pGmtseq
+	and cut905.clrseqg = :pClrseqg
+	and cut905.fabseq = :pFabseq
+	and cut905.cutseq = :pCutseq
+	and cut905.lectcod is not null
+	and cut905.szeratio is null) wmTempTable
+        ]]>
+    <query-param name="pDyejob" type="java.lang.String"/>
+    <query-param name="pGmtseq" type="java.lang.String"/>
+    <query-param name="pClrseqg" type="java.lang.Integer"/>
+    <query-param name="pFabseq" type="java.lang.Integer"/>
+    <query-param name="pCutseq" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="qryUserLocation">
+        <![CDATA[
+        select lcncod, scncod
+from   rft160
+where  usrid=:pUsrid
+        ]]>
+    <query-param name="pUsrid" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryUserLocation__count">
+        <![CDATA[
+        select count(*) from (select lcncod, scncod
+from   rft160
+where  usrid=:pUsrid) wmTempTable
+        ]]>
+    <query-param name="pUsrid" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="qryGetItemcod">
+        <![CDATA[
+        select itemcod
+		from rft850
+		where lovfld = 'FABCONST'
+		and sts is null
+        ]]>
+    </sql-query>
+
+    <sql-query name="qryGetItemcod__count">
+        <![CDATA[
+        select count(*) from (select itemcod
+		from rft850
+		where lovfld = 'FABCONST'
+		and sts is null) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

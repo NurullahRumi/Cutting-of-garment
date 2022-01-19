@@ -1,0 +1,184 @@
+<wm-page data-ng-controller="QueryCuttingJobsPageController" pagetitle="Query Cutting Jobs" name="page1">
+    <wm-header content="header" name="header1">
+        <wm-param name="pTitle" value="bind:Variables.statPrgName.dataSet.dataValue" type="string"></wm-param>
+    </wm-header>
+    <wm-top-nav name="top_nav1" content="topnav">
+        <wm-param name="p_param" value="bind:pageParams.pOrdnum" type="string"></wm-param>
+    </wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-layoutgrid name="layoutgrid5">
+                <wm-gridrow name="gridrow8">
+                    <wm-gridcolumn name="gridcolumn23" columnwidth="8">
+                        <wm-form postmessage="" dataset="bind:Variables.svCu1000pk0QryJobcutOrder.dataSet.poutOrderDetail" errormessage="" captionposition="top" title="" enctype="application/x-www-form-urlencoded" method="get" captionalign="left" name="form1"
+                            width="650">
+                            <wm-layoutgrid columns="1" name="layoutgrid1">
+                                <wm-gridrow name="gridrow1">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn1">
+                                        <wm-form-field placeholder="Enter value" inputtype="text" defaultvalue="bind:pageParams.pOrdnum" on-change="ordnumChange($event, $scope, newVal, oldVal)" readonly="false" displayname="Order" key="ordnum" type="string"
+                                            show="true" widget="text" name="ordnum"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn4"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn5">
+                                        <wm-form-field placeholder="Enter value" inputtype="text" defaultvalue="bind:pageParams.pDyejob" on-change="dyejobChange($event, $scope, newVal, oldVal)" readonly="false" displayname="Dyejob" key="dyejob" type="string"
+                                            show="true" widget="text" name="dyejob"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn15">
+                                        <wm-button class="btn-primary" caption="Query" type="button" margin="1.5em 0.5em unset 0.5em" name="button5_1" on-click="button5_1Click($event, $scope)"></wm-button>
+                                        <wm-button class="btn-secondary" caption="Reset" type="button" margin="1.5em 0.5em unset 0.5em" name="button6" on-click="button6Click($event, $scope)"></wm-button>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-form>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn24" columnwidth="4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow9_1">
+                    <wm-gridcolumn name="gridcolumn25_1" columnwidth="10">
+                        <wm-panel closable="false" class="panel-primary" name="panel2" iconclass="" autoclose="outsideClick" title="Order Details">
+                            <wm-table gridfirstrowselect="true" spacing="condensed" name="gridOrder" navigation="Classic" dataset="bind:Variables.svCu1000pk0QryJobcutOrder.dataSet.poutOrderDetail" title="">
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Order No" binding="ordnum"></wm-table-column>
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Client Code" binding="clicod"></wm-table-column>
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Ship Date" binding="sshpdat"></wm-table-column>
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Merch" binding="merchandiser"></wm-table-column>
+                                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" caption="Mak Unit" binding="maklcn"></wm-table-column>
+                                <wm-table-column readonly="false" show="true" type="integer" edit-widget-type="number" textalignment="right" caption="Order Qty" binding="qtyord"></wm-table-column>
+                                <wm-table-column readonly="false" show="true" type="byte" edit-widget-type="number" textalignment="right" caption="Pack Unit" binding="pckunt"></wm-table-column>
+                            </wm-table>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn26_1" columnwidth="2"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-panel class="panel-info" name="panel3" iconclass="" autoclose="outsideClick" title="Jobs Cut" margin="unset unset 0px unset">
+                <wm-table filtermode="multicolumn" gridfirstrowselect="true" nodatamessage="No dyejobs found." showrecordcount="true" pagesize="10" title="" dataset="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList" navigation="Classic"
+                    name="grid3" spacing="condensed">
+                    <wm-table-column binding="dyejob" caption="Dyejob" width="80px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column-group name="group" caption="Colour">
+                        <wm-table-column binding="clrseq" caption="Seq" width="40px" textalignment="right" edit-widget-type="number" type="byte" show="true" readonly="false"></wm-table-column>
+                        <wm-table-column binding="clrdes" caption="Clr Description" width="120px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    </wm-table-column-group>
+                    <wm-table-column binding="trfflg" caption="Trf" width="25px" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column-group name="group1" caption="Fabric">
+                        <wm-table-column binding="fabseq" caption="Fab Seq" width="70px" edit-widget-type="number" type="byte" show="true" readonly="false"></wm-table-column>
+                        <wm-table-column binding="fabtyp" caption="FabType" width="80px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                        <wm-table-column binding="fabwgt" caption="G/m2" width="50px" textalignment="right" edit-widget-type="number" type="integer" searchable="false" show="true" readonly="false"></wm-table-column>
+                    </wm-table-column-group>
+                    <wm-table-column binding="dyeunt" caption="Dye  Unit" width="60px" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="dyests" caption="Job</br>Status" width="100px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="amtreq" caption="Kgs Req" width="80px" textalignment="right" edit-widget-type="number" type="double" formatpattern="numberToString" fractionsize="2" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="wgtcmp" caption="Kgs</br>Dyed" width="80px" textalignment="right" edit-widget-type="number" type="double" formatpattern="numberToString" fractionsize="2" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="wgtdel" caption="Kgs DV" width="80px" textalignment="right" edit-widget-type="number" type="double" formatpattern="numberToString" fractionsize="2" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="kgs" caption="Kgs Rcv" width="80px" textalignment="right" edit-widget-type="number" type="long" formatpattern="numberToString" fractionsize="2" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="kgscut" caption="Kgs Cut" width="80px" textalignment="right" edit-widget-type="number" type="double" formatpattern="numberToString" fractionsize="2" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="cutlcn" caption="Cut</br>Unit" width="70px" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="cutsts" caption="Cut</br>Sts" width="60px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="cutdate" caption="Cut Date" width="120px" edit-widget-type="datetime" type="datetime" datepattern="dd-MMM-yyyy HH:mm" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="pcscut" caption="Pcs Cut" width="70px" textalignment="right" edit-widget-type="number" type="double" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="loadate" caption="Load Date" width="120px" edit-widget-type="datetime" type="datetime" datepattern="dd-MMM-yyyy" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="pcsload" caption="Pcs Load" width="70px" textalignment="right" edit-widget-type="number" type="double" searchable="false" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column-group name="group2" caption="Cutting Delivery Details">
+                        <wm-table-column binding="wdelnum" caption="Cut DN#" width="100px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                        <wm-table-column binding="wdatdel" caption="Delivery Date" edit-widget-type="datetime" type="datetime" datepattern="dd-MMM-yyyy" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                    </wm-table-column-group>
+                    <wm-table-column-group name="group3" caption="Dyeing Delivery Details">
+                        <wm-table-column binding="ddelnum" caption="Note #" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                        <wm-table-column binding="deldat" caption="Delivery Date" edit-widget-type="datetime" type="datetime" datepattern="dd-MMM-yyyy" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                    </wm-table-column-group>
+                </wm-table>
+                <wm-layoutgrid name="layoutgrid5_1">
+                    <wm-gridrow name="gridrow8_1" padding="0px unset">
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn23_1"></wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn27_2" padding="0px unset">
+                            <wm-label padding="unset 0.5em" class="col-md-12 displayPrompt" caption="Total Kgs Req" name="label24" textalign="right"></wm-label>
+                            <wm-label padding="unset 0.5em 0em 0.5em" name="labelGrid3Tamtreq" class="displayField col-md-12" caption="" textalign="right" margin="unset unset 0px unset"></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn28_1">
+                            <wm-label padding="unset 0.5em" name="label18" class="col-md-12 displayPrompt" caption="Total Kgs Dyed" textalign="right"></wm-label>
+                            <wm-label padding="unset 0.5em" name="labelGrid3Tkgsdyed" class="displayField col-md-12" caption="" textalign="right"></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn29" padding="0px unset">
+                            <wm-label padding="unset 0.5em" name="label16" class="col-md-12 displayPrompt" caption="Total Kgs DV" textalign="right"></wm-label>
+                            <wm-label padding="unset 0.5em" name="labelGrid3Tkgsdv" class="col-md-12 displayField" textalign="right" caption=""></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn30_1" padding="0px unset">
+                            <wm-label padding="unset 0.5em" name="label20" caption="Total Kgs Rcv" class="col-md-12 displayPrompt" textalign="right"></wm-label>
+                            <wm-label padding="unset 0.5em" name="labelGrid3Tkgsrcv" class="col-md-12 displayField" textalign="right" caption=""></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn24_1" padding="0px unset">
+                            <wm-label padding="unset 0.5em" name="label22" class="col-md-12 displayPrompt" caption="Total Kgs Cut" textalign="right"></wm-label>
+                            <wm-label padding="unset 0.5em" name="labelGrid3Tkgscut" class="col-md-12 displayField" textalign="right" caption=""></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn29_2"></wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn31_1" padding="0px unset">
+                            <wm-label padding="unset 0.5em" class="col-md-12 displayPrompt" caption="Total Pcs Cut" textalign="right" name="label26"></wm-label>
+                            <wm-label padding="unset 0.5em" class="col-md-12 displayField" textalign="right" caption="" name="labelGrid3Tpcscut"></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn30_2" padding="0px unset">
+                            <wm-label padding="unset 0.5em" class="col-md-12 displayPrompt" caption="Total Pcs Load" textalign="right" name="label28"></wm-label>
+                            <wm-label padding="unset 0.5em" class="col-md-12 displayField" textalign="right" caption="" name="labelGrid3Tpcsload"></wm-label>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+            </wm-panel>
+            <wm-layoutgrid name="layoutgrid4">
+                <wm-gridrow name="gridrow7" padding="2px unset 0px unset">
+                    <wm-gridcolumn name="gridcolumn28_2" columnwidth="8">
+                        <wm-layoutgrid class="bordered" name="layoutgrid6">
+                            <wm-gridrow name="gridrow6_1">
+                                <wm-gridcolumn name="gridcolumn25" columnwidth="5">
+                                    <wm-label color="steelblue" fontweight="bold" class="displayPrompt" caption="bind:&quot;Summary for Order &quot; + Widgets.lblCurrentOrdnum.caption" name="label29_1" padding="unset 0.5em"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn name="gridcolumn26" columnwidth="5"></wm-gridcolumn>
+                                <wm-gridcolumn name="gridcolumn27_1" columnwidth="2"></wm-gridcolumn>
+                                <wm-gridcolumn name="gridcolumn28" columnwidth="2"></wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow9">
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn13">
+                                    <wm-label name="label22_1" class="col-md-3 control-label" caption="Total Kgs req" width="85" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label14" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].totreq.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                    <wm-label width="95" name="label23_1" class="col-md-5 control-label" caption="Total Kgs Dyed" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label8" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].totdye.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn15_2">
+                                    <wm-label name="label24_1" caption="Total Kgs DV" class="col-md-3 control-label" width="85" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label9" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].totdel.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn19">
+                                    <wm-label name="label25_1" caption="Total Kgs Rcv" class="col-md-3 control-label" width="85" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label10" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].kgsrcv.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow5_1">
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn27">
+                                    <wm-label name="label26_1" caption="Total Kgs Cut" class="col-md-3 control-label" width="85" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label11" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].sumkgscut.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn30">
+                                    <wm-label name="label27_1" caption="Total Pcs Cut" class="col-md-3 control-label" width="95" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label12" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].totcut.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn31">
+                                    <wm-label name="label28_1" caption="Total Pcs Load" class="col-md-3 control-label" width="85" margin="unset 5px unset unset"></wm-label>
+                                    <wm-label name="label13" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_QueryJobscut.dataSet.poutJobscutList[$i].totload.toLocaleString()" textalign="right"></wm-label>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="3" name="gridcolumn20_1"></wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn29_1" columnwidth="4">
+                        <wm-button class="btn-primary" caption="1.  Dye Date" type="button" margin="unset 0.5em" name="btnDyeDate" width="80" on-click="btnDyeDateClick($event, $scope)"></wm-button>
+                        <wm-button show="false" class="btn-primary" caption="2. Size" type="button" margin="unset 0.5em" name="button4" width="80" on-click="Actions.goToPage_QueryCuttingBySize.invoke()"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}"
+            on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog>
+    </wm-view>
+</wm-page>

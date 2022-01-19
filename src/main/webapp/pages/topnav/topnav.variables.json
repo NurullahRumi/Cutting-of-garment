@@ -1,0 +1,24 @@
+{
+  "srvCu100pk0SprocCallMainPage" : {
+    "_id" : "wm-srvCu100pk0SprocCallMainPage-wm.ServiceVariable-1530271961613",
+    "name" : "srvCu100pk0SprocCallMainPage",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0psprocCallMakeupmainPageResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCu1000pk0psproc_call_makeupmain_page",
+    "operationId" : "ProcedureExecutionController_executeProcCu1000pk0psproc_call_makeupmain_page",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  }
+}

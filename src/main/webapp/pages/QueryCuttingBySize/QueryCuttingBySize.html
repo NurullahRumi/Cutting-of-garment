@@ -1,0 +1,1159 @@
+<wm-page data-ng-controller="QueryCuttingBySizePageController" pagetitle="Query Cutting By Size" name="page1">
+    <wm-header content="header" name="header1">
+        <wm-param name="pTitle" value="bind:Variables.statPrgName.dataSet.dataValue" type="string"></wm-param>
+    </wm-header>
+    <wm-top-nav name="top_nav1" content="topnav">
+        <wm-param name="p_param" value="bind:pageParams.pOrdnum" type="string"></wm-param>
+    </wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-form errormessage="" captionposition="top" title="" enctype="application/x-www-form-urlencoded" method="get" captionalign="left" name="form1" width="700" validationtype="default" postmessage="" messagelayout="Inline" dataset="bind:Variables.svProcCU1000PK0_QryCutBySize_OrderDet.dataSet">
+                <wm-layoutgrid columns="1" name="layoutgrid7">
+                    <wm-gridrow name="gridrow13_1">
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn86">
+                            <wm-form-field name="pOrdnum" readonly="false" displayname="Order No" key="pOrdnum" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value" defaultvalue="bind:pageParams.pOrdnum" on-change="pOrdnumChange($event, $scope, newVal, oldVal)"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn90_1">
+                            <wm-form-field name="pColour" readonly="false" displayname="Colour" key="pColour" type="integer" show="true" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn91_1">
+                            <wm-form-field name="pGarment" readonly="false" displayname="Garment" key="pGarment" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value" on-change="pGarmentChange($event, $scope, newVal, oldVal)"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn92_1">
+                            <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup1" padding="20px unset unset unset">
+                                <wm-button caption="Query" type="submit" class="btn-primary" name="button6" on-click="button6Click($event, $scope)"></wm-button>
+                                <wm-button caption="Reset" type="reset" class="btn-secondary" name="button4" on-click="button4Click($event, $scope)"></wm-button>
+                            </wm-buttongroup>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+            </wm-form>
+            <wm-table showrecordcount="true" spacing="condensed" gridclass="table-striped table-bordered table-hover" title="Garments" dataset="bind:Variables.svProcCU1000PK0_QryCutBySize_OrderDet.dataSet.poutOrderDet" navigation="Classic" name="grid1" width="1050"
+                gridfirstrowselect="true" class="panel-primary">
+                <wm-table-column binding="ordnum" caption="Order" width="80px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column-group name="group1" caption="Colour">
+                    <wm-table-column binding="clrseq" caption="Seq" width="50px" textalignment="right" edit-widget-type="number" type="byte" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="wclrdes" caption="Description" width="120px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                </wm-table-column-group>
+                <wm-table-column-group name="group" caption="Garment">
+                    <wm-table-column binding="gmtseq" caption="Seq" width="50px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="wgmtdes" caption="Description" width="80px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                </wm-table-column-group>
+                <wm-table-column binding="fabclr" caption="Contrast Garment" width="120px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="wclicod" caption="Client" width="100px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="wsshpdat" caption="Ship. Date" width="120px" edit-widget-type="datetime" type="datetime" datepattern="dd-MMM-yyyy" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                <wm-table-column-group name="group2" caption="Merchandiser">
+                    <wm-table-column binding="wmrcid" caption="User ID" width="50px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="wmrcname" caption="Username" width="150px" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                </wm-table-column-group>
+            </wm-table>
+            <wm-layoutgrid name="layoutgrid6">
+                <wm-gridrow name="gridrow12_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn84_1">
+                        <wm-label class="col-md-1 control-label" name="label4" caption="Choose Fab Category" margin="12px 10px unset unset" textalign="right"></wm-label>
+                        <wm-radioset name="radioset1" dataset="bind:Variables.radioFabCategory.dataSet" datafield="dataValue" displayfield="name" layout="inline" selectedvalue="bind:Variables.radioFabCategory.dataSet[$i].dataValue"></wm-radioset>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow18">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn107_1">
+                        <wm-label padding="unset 0.5em" name="label104" caption="bind:'Dyejob Details for '+ Widgets.grid1.selecteditem.ordnum + '  Gmt Colour  ' + Widgets.grid1.selecteditem.wclrdes" class="col-md-12 label-info h4" height="25"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow17_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn106_1">
+                        <wm-container name="gridDyejob" height="100" id="tgridDyejob" class="bordered text-info"></wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-layoutgrid name="layoutgrid2_1">
+                <wm-gridrow name="gridrow2_1" padding="5px unset 10px unset">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn109">
+                        <wm-label padding="unset 0.5em" name="label15" caption="bind:&quot;Total Records: &quot; + Variables.statCountFilteredRows.dataSet.dataValue"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn5_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn6_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn14_1"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn15">
+                        <wm-label name="label5" caption="Cut Unit" class="col-md-3 control-label" width="80" textalign="right" margin="unset 5px unset unset"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label6" class="displayField" caption="bind:Variables.tgridDyejob.FRow.cutlcn" width="100"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn13">
+                        <wm-label name="label7" caption="Mku Unit" class="col-md-3 control-label" width="80" textalign="right" margin="unset 5px unset unset"></wm-label>
+                        <wm-label name="label8" class="displayField" caption="bind:Variables.tgridDyejob.FRow.maklcn" width="100"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                        <wm-container name="container2" show="bind:(Widgets.radioset1.datavalue=='CONTRAST')?false:true">
+                            <wm-label name="label9" caption="Cut Avg p/kg" class="col-md-3 control-label" width="80" textalign="right" margin="unset 5px unset unset"></wm-label>
+                            <wm-label padding="unset 0.5em" name="lblCutAvg_mainriblace" caption="bind:(Variables.tgridDyejob.Rows.AR3.avgcutavgFabclr!==undefined)?(Math.round((Variables.tgridDyejob.Rows.AR3.avgcutavgFabclr *100)/100)):''" show="true" class="displayField"></wm-label>
+                        </wm-container>
+                        <wm-container name="container3" show="bind:(Widgets.radioset1.datavalue=='CONTRAST')?true:false">
+                            <wm-label padding="unset 0.5em" name="label14_1" class="col-md-7 control-label" caption="bind:'Cut Avg p/kg for fabseq ' + Variables.tgridDyejob.FRow.fabseq"></wm-label>
+                            <wm-label textalign="right" padding="unset 0.5em" name="lblCutAvg_contrast" class="displayField" width="100" caption="bind:Variables.tgridDyejob.FRow.avgcutavgFabclr" show="true"></wm-label>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn16">
+                        <wm-label name="label11" caption="Last Mer Avg p/kg" class="col-md-6 control-label" textalign="right" margin="unset 5px unset unset"></wm-label>
+                        <wm-label textalign="right" name="label13" class="displayField" caption="bind:Variables.tgridDyejob.FRow.fabrto" width="85"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn17">
+                        <wm-label name="label12" caption="Remarks" class="col-md-3 control-label" width="80" textalign="right" margin="unset 5px unset unset"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label14" class="displayField" caption="bind:Variables.tgridDyejob.FRow.rem" width="300"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn18">
+                        <wm-layoutgrid name="layoutgrid2" class="bordered" show="bind:(Widgets.radioset1.datavalue=='CONTRAST') ? true:false
+">
+                            <wm-gridrow name="gridrow29">
+                                <wm-gridcolumn name="gridcolumn218_2" columnwidth="12">
+                                    <wm-label color="steelblue" class="control-label" caption="bind:&quot;Summary for &quot; +Widgets.grid1.selecteditem.ordnum + &quot; , Gmt &quot; + Widgets.grid1.selecteditem.gmtseq+ &quot; , Colour &quot; + Widgets.grid1.selecteditem.wclrdes + &quot; Fab seq &quot; + Variables.tgridDyejob.FRow.fabseq"
+                                        name="label178" padding="unset 0.5em"></wm-label>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow2" padding="10px unset">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn6_1">
+                                    <wm-layoutgrid name="layoutgrid3">
+                                        <wm-gridrow name="gridrow4">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn10"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn18">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="ALL SIZES" name="label210"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn19">
+                                                <wm-label textalign="center" name="label77" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[0].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn20">
+                                                <wm-label textalign="center" width="60" name="label78" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[1].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn21">
+                                                <wm-label textalign="center" width="60" name="label80" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[2].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn11">
+                                                <wm-label textalign="center" width="60" name="label81" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[3].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow5">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn12">
+                                                <wm-label padding="unset 0.5em" name="lblTotalPrtQty" caption="Total Pcs Cut" class="badge"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn22">
+                                                <wm-label textalign="right" name="label3" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalOrderPcscut"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn23">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label8" caption="bind:Variables.tgridDyejob.FRow.totalPcs1"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn24">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label12" caption="bind:Variables.tgridDyejob.FRow.totalPcs2"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn25">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label17" caption="bind:Variables.tgridDyejob.FRow.totalPcs3.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn13">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label21" caption="bind:Variables.tgridDyejob.FRow.totalPcs4.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow8">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn46">
+                                                <wm-label padding="unset 0.5em" name="label74" class="badge" caption="Total Pcs Reqd"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn100">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label4" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].totpcs.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn101">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label9" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord1.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn102">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label13" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord2.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn103">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label18" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord3.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn51">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label22" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord4.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow9">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn52">
+                                                <wm-label padding="unset 0.5em" name="label75" class="badge" caption="Balance"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn104">
+                                                <wm-label textalign="right" class="displayField" width="60" name="TotBal" caption="bind:Variables.tgridDyejob.FRow.totbal.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn105">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal1>0
+}" textalign="right" class="displayField" width="60" name="bal1" caption="bind:Variables.tgridDyejob.FRow.bal1.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn106">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal2>0
+}" textalign="right" class="displayField" width="60" name="bal2" caption="bind:Variables.tgridDyejob.FRow.bal2.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn107">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal3>0
+}" textalign="right" class="displayField" width="60" name="bal3" caption="bind:Variables.tgridDyejob.FRow.bal3.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn57">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal4>0
+}" textalign="right" class="displayField" width="60" name="bal4" caption="bind:Variables.tgridDyejob.FRow.bal4.toLocaleString()"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow10">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn58">
+                                                <wm-label padding="unset 0.5em" name="label76" class="badge" caption="% Completed"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn108">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblTotcomp" caption=""></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn109">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp1" caption=""></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn110">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp2" caption=""></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn111">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp3" caption=""></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn63">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp4" caption=""></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="8" name="gridcolumn7">
+                                    <wm-layoutgrid name="layoutgrid4">
+                                        <wm-gridrow name="gridrow6">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                <wm-label textalign="center" width="60" name="label82" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[4].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn26">
+                                                <wm-label textalign="center" width="60" name="label83" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[5].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn27">
+                                                <wm-label textalign="center" width="60" name="label84" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[6].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn28">
+                                                <wm-label textalign="center" width="60" name="label85" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[7].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn29">
+                                                <wm-label textalign="center" width="60" name="label86" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[8].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn30">
+                                                <wm-label textalign="center" width="60" name="label87" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[9].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn31">
+                                                <wm-label textalign="center" width="60" name="label88" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[10].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn33">
+                                                <wm-label textalign="center" width="60" name="label89" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[11].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn35">
+                                                <wm-label textalign="center" width="60" name="label90" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[12].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn34">
+                                                <wm-label textalign="center" width="60" name="label91" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[13].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn32">
+                                                <wm-label textalign="center" width="60" name="label92" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[14].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn15">
+                                                <wm-label textalign="center" width="60" name="label93" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[15].sizedes"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow7">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn16">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label25" caption="bind:Variables.tgridDyejob.FRow.totalPcs5.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[4].sizedes==undefined)||(Variables.statOrdSize.dataSet[4].sizedes==null)||(Variables.statOrdSize.dataSet[4].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn36">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label29" caption="bind:Variables.tgridDyejob.FRow.totalPcs6.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[5].sizedes==undefined)||(Variables.statOrdSize.dataSet[5].sizedes==null)||(Variables.statOrdSize.dataSet[5].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn37">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label33" caption="bind:Variables.tgridDyejob.FRow.totalPcs7.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[6].sizedes==undefined)||(Variables.statOrdSize.dataSet[6].sizedes==null)||(Variables.statOrdSize.dataSet[6].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn38">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label37" caption="bind:Variables.tgridDyejob.FRow.totalPcs8.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[7].sizedes==undefined)||(Variables.statOrdSize.dataSet[7].sizedes==null)||(Variables.statOrdSize.dataSet[7].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn39">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label41" caption="bind:Variables.tgridDyejob.FRow.totalPcs9.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[8].sizedes==undefined)||(Variables.statOrdSize.dataSet[8].sizedes==null)||(Variables.statOrdSize.dataSet[8].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn40">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label45" caption="bind:Variables.tgridDyejob.FRow.totalPcs10.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[9].sizedes==undefined)||(Variables.statOrdSize.dataSet[9].sizedes==null)||(Variables.statOrdSize.dataSet[9].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn41">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label49" caption="bind:Variables.tgridDyejob.FRow.totalPcs11.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[10].sizedes==undefined)||(Variables.statOrdSize.dataSet[10].sizedes==null)||(Variables.statOrdSize.dataSet[10].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn42">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label53" caption="bind:Variables.tgridDyejob.FRow.totalPcs12.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[11].sizedes==undefined)||(Variables.statOrdSize.dataSet[11].sizedes==null)||(Variables.statOrdSize.dataSet[11].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn43">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label57" caption="bind:Variables.tgridDyejob.FRow.totalPcs13.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[12].sizedes==undefined)||(Variables.statOrdSize.dataSet[12].sizedes==null)||(Variables.statOrdSize.dataSet[12].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn44">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label61" caption="bind:Variables.tgridDyejob.FRow.totalPcs14.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[13].sizedes==undefined)||(Variables.statOrdSize.dataSet[13].sizedes==null)||(Variables.statOrdSize.dataSet[13].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn45">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label65" caption="bind:Variables.tgridDyejob.FRow.totalPcs15.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[14].sizedes==undefined)||(Variables.statOrdSize.dataSet[14].sizedes==null)||(Variables.statOrdSize.dataSet[14].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn17">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label69" caption="bind:Variables.tgridDyejob.FRow.totalPcs16.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[15].sizedes==undefined)||(Variables.statOrdSize.dataSet[15].sizedes==null)||(Variables.statOrdSize.dataSet[15].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow11">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn64">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label26" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord5.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[4].sizedes==undefined)||(Variables.statOrdSize.dataSet[4].sizedes==null)||(Variables.statOrdSize.dataSet[4].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn112">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label30" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord6.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[5].sizedes==undefined)||(Variables.statOrdSize.dataSet[5].sizedes==null)||(Variables.statOrdSize.dataSet[5].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn113">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label34" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord7.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[6].sizedes==undefined)||(Variables.statOrdSize.dataSet[6].sizedes==null)||(Variables.statOrdSize.dataSet[6].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn114">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label38" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord8.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[7].sizedes==undefined)||(Variables.statOrdSize.dataSet[7].sizedes==null)||(Variables.statOrdSize.dataSet[7].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn115">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label42" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord9.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[8].sizedes==undefined)||(Variables.statOrdSize.dataSet[8].sizedes==null)||(Variables.statOrdSize.dataSet[8].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn116">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label46" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord10.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[9].sizedes==undefined)||(Variables.statOrdSize.dataSet[9].sizedes==null)||(Variables.statOrdSize.dataSet[9].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn117">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label50" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord11.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[10].sizedes==undefined)||(Variables.statOrdSize.dataSet[10].sizedes==null)||(Variables.statOrdSize.dataSet[10].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn118">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label54" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord12.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[11].sizedes==undefined)||(Variables.statOrdSize.dataSet[11].sizedes==null)||(Variables.statOrdSize.dataSet[11].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn119">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label58" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord13.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[12].sizedes==undefined)||(Variables.statOrdSize.dataSet[12].sizedes==null)||(Variables.statOrdSize.dataSet[12].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn121">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label62" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord14.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[13].sizedes==undefined)||(Variables.statOrdSize.dataSet[13].sizedes==null)||(Variables.statOrdSize.dataSet[13].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn120">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label66" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord15.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[14].sizedes==undefined)||(Variables.statOrdSize.dataSet[14].sizedes==null)||(Variables.statOrdSize.dataSet[14].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn75">
+                                                <wm-label textalign="right" class="displayField" width="60" name="label70" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord16.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[15].sizedes==undefined)||(Variables.statOrdSize.dataSet[15].sizedes==null)||(Variables.statOrdSize.dataSet[15].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow12">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn76">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal5>0
+}" textalign="right" class="displayField" width="60" name="bal5" caption="bind:Variables.tgridDyejob.FRow.bal5.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[4].sizedes==undefined)||(Variables.statOrdSize.dataSet[4].sizedes==null)||(Variables.statOrdSize.dataSet[4].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn122">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal6>0
+}" textalign="right" class="displayField" width="60" name="bal6" caption="bind:Variables.tgridDyejob.FRow.bal6.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[5].sizedes==undefined)||(Variables.statOrdSize.dataSet[5].sizedes==null)||(Variables.statOrdSize.dataSet[5].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn124">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal7>0
+}" textalign="right" class="displayField" width="60" name="bal7" caption="bind:Variables.tgridDyejob.FRow.bal7.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[6].sizedes==undefined)||(Variables.statOrdSize.dataSet[6].sizedes==null)||(Variables.statOrdSize.dataSet[6].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn127">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal8>0
+}" textalign="right" class="displayField" width="60" name="bal8" caption="bind:Variables.tgridDyejob.FRow.bal8.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[7].sizedes==undefined)||(Variables.statOrdSize.dataSet[7].sizedes==null)||(Variables.statOrdSize.dataSet[7].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn129">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal9>0
+}" textalign="right" class="displayField" width="60" name="bal9" caption="bind:Variables.tgridDyejob.FRow.bal9.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[8].sizedes==undefined)||(Variables.statOrdSize.dataSet[8].sizedes==null)||(Variables.statOrdSize.dataSet[8].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn130">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal10>0
+}" textalign="right" class="displayField" width="60" name="bal10" caption="bind:Variables.tgridDyejob.FRow.bal10.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[9].sizedes==undefined)||(Variables.statOrdSize.dataSet[9].sizedes==null)||(Variables.statOrdSize.dataSet[9].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn131">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal11>0
+}" textalign="right" class="displayField" width="60" name="bal11" caption="bind:Variables.tgridDyejob.FRow.bal11.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[10].sizedes==undefined)||(Variables.statOrdSize.dataSet[10].sizedes==null)||(Variables.statOrdSize.dataSet[10].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn128">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal12>0
+}" textalign="right" class="displayField" width="60" name="bal12" caption="bind:Variables.tgridDyejob.FRow.bal12.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[11].sizedes==undefined)||(Variables.statOrdSize.dataSet[11].sizedes==null)||(Variables.statOrdSize.dataSet[11].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn126">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal13>0
+}" textalign="right" class="displayField" width="60" name="bal13" caption="bind:Variables.tgridDyejob.FRow.bal13.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[12].sizedes==undefined)||(Variables.statOrdSize.dataSet[12].sizedes==null)||(Variables.statOrdSize.dataSet[12].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn125">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal14>0
+}" textalign="right" class="displayField" width="60" name="bal14" caption="bind:Variables.tgridDyejob.FRow.bal14.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[13].sizedes==undefined)||(Variables.statOrdSize.dataSet[13].sizedes==null)||(Variables.statOrdSize.dataSet[13].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn123">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal15>0
+}" textalign="right" class="displayField" width="60" name="bal15" caption="bind:Variables.tgridDyejob.FRow.bal15.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[14].sizedes==undefined)||(Variables.statOrdSize.dataSet[14].sizedes==null)||(Variables.statOrdSize.dataSet[14].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn87">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal16>0
+}" textalign="right" class="displayField" width="60" name="bal16" caption="bind:Variables.tgridDyejob.FRow.bal16.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[15].sizedes==undefined)||(Variables.statOrdSize.dataSet[15].sizedes==null)||(Variables.statOrdSize.dataSet[15].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow13">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn88">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp5" caption="" show="bind:((Variables.statOrdSize.dataSet[4].sizedes==undefined)||(Variables.statOrdSize.dataSet[4].sizedes==null)||(Variables.statOrdSize.dataSet[4].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn132">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp6" caption="" show="bind:((Variables.statOrdSize.dataSet[5].sizedes==undefined)||(Variables.statOrdSize.dataSet[5].sizedes==null)||(Variables.statOrdSize.dataSet[5].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn133">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp7" caption="" show="bind:((Variables.statOrdSize.dataSet[6].sizedes==undefined)||(Variables.statOrdSize.dataSet[6].sizedes==null)||(Variables.statOrdSize.dataSet[6].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn135">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp8" caption="" show="bind:((Variables.statOrdSize.dataSet[7].sizedes==undefined)||(Variables.statOrdSize.dataSet[7].sizedes==null)||(Variables.statOrdSize.dataSet[7].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn136">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp9" caption="" show="bind:((Variables.statOrdSize.dataSet[8].sizedes==undefined)||(Variables.statOrdSize.dataSet[8].sizedes==null)||(Variables.statOrdSize.dataSet[8].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn137">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp10" caption="" show="bind:((Variables.statOrdSize.dataSet[9].sizedes==undefined)||(Variables.statOrdSize.dataSet[9].sizedes==null)||(Variables.statOrdSize.dataSet[9].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn138">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp11" caption="" show="bind:((Variables.statOrdSize.dataSet[10].sizedes==undefined)||(Variables.statOrdSize.dataSet[10].sizedes==null)||(Variables.statOrdSize.dataSet[10].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn139">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp12" caption="" show="bind:((Variables.statOrdSize.dataSet[11].sizedes==undefined)||(Variables.statOrdSize.dataSet[11].sizedes==null)||(Variables.statOrdSize.dataSet[11].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn140">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp13" caption="" show="bind:((Variables.statOrdSize.dataSet[12].sizedes==undefined)||(Variables.statOrdSize.dataSet[12].sizedes==null)||(Variables.statOrdSize.dataSet[12].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn141">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp14" caption="" show="bind:((Variables.statOrdSize.dataSet[13].sizedes==undefined)||(Variables.statOrdSize.dataSet[13].sizedes==null)||(Variables.statOrdSize.dataSet[13].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn134">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp15" caption="" show="bind:((Variables.statOrdSize.dataSet[14].sizedes==undefined)||(Variables.statOrdSize.dataSet[14].sizedes==null)||(Variables.statOrdSize.dataSet[14].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn99">
+                                                <wm-label textalign="right" class="displayField" width="60" name="lblComp16" caption="" show="bind:((Variables.statOrdSize.dataSet[15].sizedes==undefined)||(Variables.statOrdSize.dataSet[15].sizedes==null)||(Variables.statOrdSize.dataSet[15].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow30_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn202_1">
+                        <wm-layoutgrid class="bordered" show="bind:(Widgets.radioset1.datavalue=='CONTRAST') ? true:false
+" name="layoutgrid7_1">
+                            <wm-gridrow padding="10px unset" name="gridrow32">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn204_1">
+                                    <wm-layoutgrid name="layoutgrid8">
+                                        <wm-gridrow name="gridrow33">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn205_1"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn206_1"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn207_1">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[16].sizedes" name="label122"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn208_1">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[17].sizedes" name="label123"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn209_1">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[18].sizedes" name="label124"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn210_1">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[19].sizedes" name="label125"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow34">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn211_1">
+                                                <wm-label padding="unset 0.5em" caption="Total Pcs Cut" class="badge" name="label126"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn212_1"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn213_1">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs17" name="label128" show="bind:((Variables.statOrdSize.dataSet[16].sizedes==undefined)||(Variables.statOrdSize.dataSet[16].sizedes==null)||(Variables.statOrdSize.dataSet[16].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn214_1">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs18" name="label129" show="bind:((Variables.statOrdSize.dataSet[17].sizedes==undefined)||(Variables.statOrdSize.dataSet[17].sizedes==null)||(Variables.statOrdSize.dataSet[17].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn215_1">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs19.toLocaleString()" name="label130" show="bind:((Variables.statOrdSize.dataSet[18].sizedes==undefined)||(Variables.statOrdSize.dataSet[18].sizedes==null)||(Variables.statOrdSize.dataSet[18].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn216_1">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs20.toLocaleString()" name="label131" show="bind:((Variables.statOrdSize.dataSet[18].sizedes==undefined)||(Variables.statOrdSize.dataSet[18].sizedes==null)||(Variables.statOrdSize.dataSet[18].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow35">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn217_1">
+                                                <wm-label padding="unset 0.5em" class="badge" caption="Total Pcs Reqd" name="label132"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn218_1"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn219_1">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord17.toLocaleString()" name="label134" show="bind:((Variables.statOrdSize.dataSet[16].sizedes==undefined)||(Variables.statOrdSize.dataSet[16].sizedes==null)||(Variables.statOrdSize.dataSet[16].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn220">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord18.toLocaleString()" name="label135" show="bind:((Variables.statOrdSize.dataSet[17].sizedes==undefined)||(Variables.statOrdSize.dataSet[17].sizedes==null)||(Variables.statOrdSize.dataSet[17].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn221">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord19.toLocaleString()" name="label136" show="bind:((Variables.statOrdSize.dataSet[18].sizedes==undefined)||(Variables.statOrdSize.dataSet[18].sizedes==null)||(Variables.statOrdSize.dataSet[18].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn222">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord20.toLocaleString()" name="label137" show="bind:((Variables.statOrdSize.dataSet[19].sizedes==undefined)||(Variables.statOrdSize.dataSet[19].sizedes==null)||(Variables.statOrdSize.dataSet[19].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow36">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn223">
+                                                <wm-label padding="unset 0.5em" class="badge" caption="Balance" name="label138"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn224"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn225">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal17>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal17.toLocaleString()" name="label140" show="bind:((Variables.statOrdSize.dataSet[16].sizedes==undefined)||(Variables.statOrdSize.dataSet[16].sizedes==null)||(Variables.statOrdSize.dataSet[16].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn226">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal18>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal18.toLocaleString()" name="label141" show="bind:((Variables.statOrdSize.dataSet[17].sizedes==undefined)||(Variables.statOrdSize.dataSet[17].sizedes==null)||(Variables.statOrdSize.dataSet[17].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn227">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal19>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal19.toLocaleString()" name="label142" show="bind:((Variables.statOrdSize.dataSet[18].sizedes==undefined)||(Variables.statOrdSize.dataSet[18].sizedes==null)||(Variables.statOrdSize.dataSet[18].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn228">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal20>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal20.toLocaleString()" name="label143" show="bind:((Variables.statOrdSize.dataSet[19].sizedes==undefined)||(Variables.statOrdSize.dataSet[19].sizedes==null)||(Variables.statOrdSize.dataSet[19].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow37">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn229">
+                                                <wm-label padding="unset 0.5em" class="badge" caption="% Completed" name="label144"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn230"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn231">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp17" show="bind:((Variables.statOrdSize.dataSet[16].sizedes==undefined)||(Variables.statOrdSize.dataSet[16].sizedes==null)||(Variables.statOrdSize.dataSet[16].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn232">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp18" show="bind:((Variables.statOrdSize.dataSet[17].sizedes==undefined)||(Variables.statOrdSize.dataSet[17].sizedes==null)||(Variables.statOrdSize.dataSet[17].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn233">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp19" show="bind:((Variables.statOrdSize.dataSet[18].sizedes==undefined)||(Variables.statOrdSize.dataSet[18].sizedes==null)||(Variables.statOrdSize.dataSet[18].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn234">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp20" show="bind:((Variables.statOrdSize.dataSet[19].sizedes==undefined)||(Variables.statOrdSize.dataSet[19].sizedes==null)||(Variables.statOrdSize.dataSet[19].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="8" name="gridcolumn253">
+                                    <wm-layoutgrid name="layoutgrid9">
+                                        <wm-gridrow name="gridrow41">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn254">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[20].sizedes" name="label150"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn255">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[21].sizedes" name="label151"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn256">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[22].sizedes" name="label152"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn257">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[23].sizedes" name="label153"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn258">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[24].sizedes" name="label154"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn259">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[25].sizedes" name="label155"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn260">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[26].sizedes" name="label156"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn261">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[27].sizedes" name="label157"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn262">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[28].sizedes" name="label158"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn263">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[29].sizedes" name="label159"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn264">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[30].sizedes" name="label160"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn265">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[31].sizedes" name="label161"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow42">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn266">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs21.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[20].sizedes==undefined)||(Variables.statOrdSize.dataSet[20].sizedes==null)||(Variables.statOrdSize.dataSet[20].sizedes == ''))?false:true"
+                                                    name="label162"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn267">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs22.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[21].sizedes==undefined)||(Variables.statOrdSize.dataSet[21].sizedes==null)||(Variables.statOrdSize.dataSet[21].sizedes == ''))?false:true"
+                                                    name="label163"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn268">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs23.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[22].sizedes==undefined)||(Variables.statOrdSize.dataSet[22].sizedes==null)||(Variables.statOrdSize.dataSet[22].sizedes == ''))?false:true"
+                                                    name="label164"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn269">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs24.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[23].sizedes==undefined)||(Variables.statOrdSize.dataSet[23].sizedes==null)||(Variables.statOrdSize.dataSet[23].sizedes == ''))?false:true"
+                                                    name="label165"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn270">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs25.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[24].sizedes==undefined)||(Variables.statOrdSize.dataSet[24].sizedes==null)||(Variables.statOrdSize.dataSet[24].sizedes == ''))?false:true"
+                                                    name="label166"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn271">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs26.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[25].sizedes==undefined)||(Variables.statOrdSize.dataSet[25].sizedes==null)||(Variables.statOrdSize.dataSet[25].sizedes == ''))?false:true"
+                                                    name="label167"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn272">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs27.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[26].sizedes==undefined)||(Variables.statOrdSize.dataSet[26].sizedes==null)||(Variables.statOrdSize.dataSet[26].sizedes == ''))?false:true"
+                                                    name="label168"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn273">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs28.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[27].sizedes==undefined)||(Variables.statOrdSize.dataSet[27].sizedes==null)||(Variables.statOrdSize.dataSet[27].sizedes == ''))?false:true"
+                                                    name="label169"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn274">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs29.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[28].sizedes==undefined)||(Variables.statOrdSize.dataSet[28].sizedes==null)||(Variables.statOrdSize.dataSet[28].sizedes == ''))?false:true"
+                                                    name="label170"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn275">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs30.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[29].sizedes==undefined)||(Variables.statOrdSize.dataSet[29].sizedes==null)||(Variables.statOrdSize.dataSet[29].sizedes == ''))?false:true"
+                                                    name="label171"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn276">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs31.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[30].sizedes==undefined)||(Variables.statOrdSize.dataSet[30].sizedes==null)||(Variables.statOrdSize.dataSet[30].sizedes == ''))?false:true"
+                                                    name="label172"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn277">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs32.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[31].sizedes==undefined)||(Variables.statOrdSize.dataSet[31].sizedes==null)||(Variables.statOrdSize.dataSet[31].sizedes == ''))?false:true"
+                                                    name="label173"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow43">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn278">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord21.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[20].sizedes==undefined)||(Variables.statOrdSize.dataSet[20].sizedes==null)||(Variables.statOrdSize.dataSet[20].sizedes == ''))?false:true"
+                                                    name="label174"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn279">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord22.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[21].sizedes==undefined)||(Variables.statOrdSize.dataSet[21].sizedes==null)||(Variables.statOrdSize.dataSet[21].sizedes == ''))?false:true"
+                                                    name="label175"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn280">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord23.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[22].sizedes==undefined)||(Variables.statOrdSize.dataSet[22].sizedes==null)||(Variables.statOrdSize.dataSet[22].sizedes == ''))?false:true"
+                                                    name="label176"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn281">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord24.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[23].sizedes==undefined)||(Variables.statOrdSize.dataSet[23].sizedes==null)||(Variables.statOrdSize.dataSet[23].sizedes == ''))?false:true"
+                                                    name="label177"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn282">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord25.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[24].sizedes==undefined)||(Variables.statOrdSize.dataSet[24].sizedes==null)||(Variables.statOrdSize.dataSet[24].sizedes == ''))?false:true"
+                                                    name="label178_1"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn283">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord26.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[25].sizedes==undefined)||(Variables.statOrdSize.dataSet[25].sizedes==null)||(Variables.statOrdSize.dataSet[25].sizedes == ''))?false:true"
+                                                    name="label179"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn284">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord27.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[26].sizedes==undefined)||(Variables.statOrdSize.dataSet[26].sizedes==null)||(Variables.statOrdSize.dataSet[26].sizedes == ''))?false:true"
+                                                    name="label180"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn285">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord28.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[27].sizedes==undefined)||(Variables.statOrdSize.dataSet[27].sizedes==null)||(Variables.statOrdSize.dataSet[27].sizedes == ''))?false:true"
+                                                    name="label181"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn286">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord29.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[28].sizedes==undefined)||(Variables.statOrdSize.dataSet[28].sizedes==null)||(Variables.statOrdSize.dataSet[28].sizedes == ''))?false:true"
+                                                    name="label182"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn287">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord30.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[29].sizedes==undefined)||(Variables.statOrdSize.dataSet[29].sizedes==null)||(Variables.statOrdSize.dataSet[29].sizedes == ''))?false:true"
+                                                    name="label183"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn288">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord31.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[30].sizedes==undefined)||(Variables.statOrdSize.dataSet[30].sizedes==null)||(Variables.statOrdSize.dataSet[30].sizedes == ''))?false:true"
+                                                    name="label184"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn289">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord32.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[31].sizedes==undefined)||(Variables.statOrdSize.dataSet[31].sizedes==null)||(Variables.statOrdSize.dataSet[31].sizedes == ''))?false:true"
+                                                    name="label185"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow44">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn290">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal21>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal21.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[20].sizedes==undefined)||(Variables.statOrdSize.dataSet[20].sizedes==null)||(Variables.statOrdSize.dataSet[20].sizedes == ''))?false:true"
+                                                    name="label186"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn291">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal22>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal22.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[21].sizedes==undefined)||(Variables.statOrdSize.dataSet[21].sizedes==null)||(Variables.statOrdSize.dataSet[21].sizedes == ''))?false:true"
+                                                    name="label187"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn292">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal23>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal23.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[22].sizedes==undefined)||(Variables.statOrdSize.dataSet[22].sizedes==null)||(Variables.statOrdSize.dataSet[22].sizedes == ''))?false:true"
+                                                    name="label188"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn293">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal24>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal24.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[23].sizedes==undefined)||(Variables.statOrdSize.dataSet[23].sizedes==null)||(Variables.statOrdSize.dataSet[23].sizedes == ''))?false:true"
+                                                    name="label189"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn294">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal25>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal25.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[24].sizedes==undefined)||(Variables.statOrdSize.dataSet[24].sizedes==null)||(Variables.statOrdSize.dataSet[24].sizedes == ''))?false:true"
+                                                    name="label190"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn295">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal26>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal26.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[25].sizedes==undefined)||(Variables.statOrdSize.dataSet[25].sizedes==null)||(Variables.statOrdSize.dataSet[25].sizedes == ''))?false:true"
+                                                    name="label191"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn296">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal27>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal27.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[26].sizedes==undefined)||(Variables.statOrdSize.dataSet[26].sizedes==null)||(Variables.statOrdSize.dataSet[26].sizedes == ''))?false:true"
+                                                    name="label192"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn297">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal28>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal28.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[27].sizedes==undefined)||(Variables.statOrdSize.dataSet[27].sizedes==null)||(Variables.statOrdSize.dataSet[27].sizedes == ''))?false:true"
+                                                    name="label193"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn298">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal29>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal29.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[28].sizedes==undefined)||(Variables.statOrdSize.dataSet[28].sizedes==null)||(Variables.statOrdSize.dataSet[28].sizedes == ''))?false:true"
+                                                    name="label194"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn299">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal30>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal30.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[29].sizedes==undefined)||(Variables.statOrdSize.dataSet[29].sizedes==null)||(Variables.statOrdSize.dataSet[29].sizedes == ''))?false:true"
+                                                    name="label195"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn300">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal31>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal31.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[30].sizedes==undefined)||(Variables.statOrdSize.dataSet[30].sizedes==null)||(Variables.statOrdSize.dataSet[30].sizedes == ''))?false:true"
+                                                    name="label196"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn301">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal32>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal32.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[31].sizedes==undefined)||(Variables.statOrdSize.dataSet[31].sizedes==null)||(Variables.statOrdSize.dataSet[31].sizedes == ''))?false:true"
+                                                    name="label197"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow45">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn302">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[20].sizedes==undefined)||(Variables.statOrdSize.dataSet[20].sizedes==null)||(Variables.statOrdSize.dataSet[20].sizedes == ''))?false:true"
+                                                    name="lblComp21"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn303">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[21].sizedes==undefined)||(Variables.statOrdSize.dataSet[21].sizedes==null)||(Variables.statOrdSize.dataSet[21].sizedes == ''))?false:true"
+                                                    name="lblComp22"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn304">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[22].sizedes==undefined)||(Variables.statOrdSize.dataSet[22].sizedes==null)||(Variables.statOrdSize.dataSet[22].sizedes == ''))?false:true"
+                                                    name="lblComp23"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn305">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[23].sizedes==undefined)||(Variables.statOrdSize.dataSet[23].sizedes==null)||(Variables.statOrdSize.dataSet[23].sizedes == ''))?false:true"
+                                                    name="lblComp24"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn306">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[24].sizedes==undefined)||(Variables.statOrdSize.dataSet[24].sizedes==null)||(Variables.statOrdSize.dataSet[24].sizedes == ''))?false:true"
+                                                    name="lblComp25"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn307">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[25].sizedes==undefined)||(Variables.statOrdSize.dataSet[25].sizedes==null)||(Variables.statOrdSize.dataSet[25].sizedes == ''))?false:true"
+                                                    name="lblComp26"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn308">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[26].sizedes==undefined)||(Variables.statOrdSize.dataSet[26].sizedes==null)||(Variables.statOrdSize.dataSet[26].sizedes == ''))?false:true"
+                                                    name="lblComp27"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn309">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[27].sizedes==undefined)||(Variables.statOrdSize.dataSet[27].sizedes==null)||(Variables.statOrdSize.dataSet[27].sizedes == ''))?false:true"
+                                                    name="lblComp28"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn310">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[28].sizedes==undefined)||(Variables.statOrdSize.dataSet[28].sizedes==null)||(Variables.statOrdSize.dataSet[28].sizedes == ''))?false:true"
+                                                    name="lblComp29"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn311">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[29].sizedes==undefined)||(Variables.statOrdSize.dataSet[29].sizedes==null)||(Variables.statOrdSize.dataSet[29].sizedes == ''))?false:true"
+                                                    name="lblComp30"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn312">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[30].sizedes==undefined)||(Variables.statOrdSize.dataSet[30].sizedes==null)||(Variables.statOrdSize.dataSet[30].sizedes == ''))?false:true"
+                                                    name="lblComp31"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn313">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[31].sizedes==undefined)||(Variables.statOrdSize.dataSet[31].sizedes==null)||(Variables.statOrdSize.dataSet[31].sizedes == ''))?false:true"
+                                                    name="lblComp32"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow50">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn362">
+                        <wm-layoutgrid class="bordered" show="bind:(Widgets.radioset1.datavalue=='CONTRAST') ? true:false
+" name="layoutgrid10">
+                            <wm-gridrow padding="10px unset" name="gridrow51">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn363">
+                                    <wm-layoutgrid name="layoutgrid11">
+                                        <wm-gridrow name="gridrow52">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn364"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn365"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn366">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[32].sizedes" name="label211"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn367">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[33].sizedes" name="label212"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn368">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[34].sizedes" name="label213"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn369">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[35].sizedes" name="label214"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow53">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn370">
+                                                <wm-label padding="unset 0.5em" caption="Total Pcs Cut" class="badge" name="label215"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn371"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn372">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs33" name="label216" show="bind:((Variables.statOrdSize.dataSet[32].sizedes==undefined)||(Variables.statOrdSize.dataSet[32].sizedes==null)||(Variables.statOrdSize.dataSet[32].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn373">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs34" name="label217" show="bind:((Variables.statOrdSize.dataSet[33].sizedes==undefined)||(Variables.statOrdSize.dataSet[33].sizedes==null)||(Variables.statOrdSize.dataSet[33].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn374">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs35.toLocaleString()" name="label218" show="bind:((Variables.statOrdSize.dataSet[34].sizedes==undefined)||(Variables.statOrdSize.dataSet[34].sizedes==null)||(Variables.statOrdSize.dataSet[34].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn375">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs36.toLocaleString()" name="label219" show="bind:((Variables.statOrdSize.dataSet[35].sizedes==undefined)||(Variables.statOrdSize.dataSet[35].sizedes==null)||(Variables.statOrdSize.dataSet[35].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow54">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn376">
+                                                <wm-label padding="unset 0.5em" class="badge" caption="Total Pcs Reqd" name="label220"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn377"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn378">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord33.toLocaleString()" name="label221" show="bind:((Variables.statOrdSize.dataSet[32].sizedes==undefined)||(Variables.statOrdSize.dataSet[32].sizedes==null)||(Variables.statOrdSize.dataSet[32].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn379">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord34.toLocaleString()" name="label222" show="bind:((Variables.statOrdSize.dataSet[33].sizedes==undefined)||(Variables.statOrdSize.dataSet[33].sizedes==null)||(Variables.statOrdSize.dataSet[33].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn380">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord35.toLocaleString()" name="label223" show="bind:((Variables.statOrdSize.dataSet[34].sizedes==undefined)||(Variables.statOrdSize.dataSet[34].sizedes==null)||(Variables.statOrdSize.dataSet[34].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn381">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord36.toLocaleString()" name="label224" show="bind:((Variables.statOrdSize.dataSet[35].sizedes==undefined)||(Variables.statOrdSize.dataSet[35].sizedes==null)||(Variables.statOrdSize.dataSet[35].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow55">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn382">
+                                                <wm-label padding="unset 0.5em" class="badge" caption="Balance" name="label225"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn383"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn384">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal33>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal33.toLocaleString()" name="label226" show="bind:((Variables.statOrdSize.dataSet[32].sizedes==undefined)||(Variables.statOrdSize.dataSet[32].sizedes==null)||(Variables.statOrdSize.dataSet[32].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn385">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal34>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal34.toLocaleString()" name="label227" show="bind:((Variables.statOrdSize.dataSet[33].sizedes==undefined)||(Variables.statOrdSize.dataSet[33].sizedes==null)||(Variables.statOrdSize.dataSet[33].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn386">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal35>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal35.toLocaleString()" name="label228" show="bind:((Variables.statOrdSize.dataSet[34].sizedes==undefined)||(Variables.statOrdSize.dataSet[34].sizedes==null)||(Variables.statOrdSize.dataSet[34].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn387">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal36>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal36.toLocaleString()" name="label229" show="bind:((Variables.statOrdSize.dataSet[35].sizedes==undefined)||(Variables.statOrdSize.dataSet[35].sizedes==null)||(Variables.statOrdSize.dataSet[35].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow56">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn388">
+                                                <wm-label padding="unset 0.5em" class="badge" caption="% Completed" name="label230"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn389"></wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn390">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp33" show="bind:((Variables.statOrdSize.dataSet[32].sizedes==undefined)||(Variables.statOrdSize.dataSet[32].sizedes==null)||(Variables.statOrdSize.dataSet[32].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn391">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp34" show="bind:((Variables.statOrdSize.dataSet[33].sizedes==undefined)||(Variables.statOrdSize.dataSet[33].sizedes==null)||(Variables.statOrdSize.dataSet[33].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn392">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp35" show="bind:((Variables.statOrdSize.dataSet[34].sizedes==undefined)||(Variables.statOrdSize.dataSet[34].sizedes==null)||(Variables.statOrdSize.dataSet[34].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn393">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" name="lblComp36" show="bind:((Variables.statOrdSize.dataSet[35].sizedes==undefined)||(Variables.statOrdSize.dataSet[35].sizedes==null)||(Variables.statOrdSize.dataSet[35].sizedes == ''))?false:true"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="8" name="gridcolumn394">
+                                    <wm-layoutgrid name="layoutgrid12">
+                                        <wm-gridrow name="gridrow57">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn395">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[36].sizedes" name="label235"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn396">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[37].sizedes" name="label236"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn397">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[38].sizedes" name="label237"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn398">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[39].sizedes" name="label238"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn399">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[40].sizedes" name="label239"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn400">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[41].sizedes" name="label240"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn401">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[42].sizedes" name="label241"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn402">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[43].sizedes" name="label242"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn403">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[44].sizedes" name="label243"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn404">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[45].sizedes" name="label244"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn405">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[46].sizedes" name="label245"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn406">
+                                                <wm-label textalign="center" width="60" class="col-md-3 control-label" caption="bind:Variables.statOrdSize.dataSet[47].sizedes" name="label246"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow58">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn407">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs37.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[36].sizedes==undefined)||(Variables.statOrdSize.dataSet[36].sizedes==null)||(Variables.statOrdSize.dataSet[36].sizedes == ''))?false:true"
+                                                    name="label247"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn408">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs38.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[37].sizedes==undefined)||(Variables.statOrdSize.dataSet[37].sizedes==null)||(Variables.statOrdSize.dataSet[37].sizedes == ''))?false:true"
+                                                    name="label248"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn409">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs39.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[38].sizedes==undefined)||(Variables.statOrdSize.dataSet[38].sizedes==null)||(Variables.statOrdSize.dataSet[38].sizedes == ''))?false:true"
+                                                    name="label249"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn410">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs40.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[39].sizedes==undefined)||(Variables.statOrdSize.dataSet[39].sizedes==null)||(Variables.statOrdSize.dataSet[39].sizedes == ''))?false:true"
+                                                    name="label250"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn411">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs41.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[40].sizedes==undefined)||(Variables.statOrdSize.dataSet[40].sizedes==null)||(Variables.statOrdSize.dataSet[40].sizedes == ''))?false:true"
+                                                    name="label251"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn412">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs42.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[41].sizedes==undefined)||(Variables.statOrdSize.dataSet[41].sizedes==null)||(Variables.statOrdSize.dataSet[41].sizedes == ''))?false:true"
+                                                    name="label252"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn413">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs43.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[42].sizedes==undefined)||(Variables.statOrdSize.dataSet[42].sizedes==null)||(Variables.statOrdSize.dataSet[42].sizedes == ''))?false:true"
+                                                    name="label253"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn414">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs44.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[43].sizedes==undefined)||(Variables.statOrdSize.dataSet[43].sizedes==null)||(Variables.statOrdSize.dataSet[43].sizedes == ''))?false:true"
+                                                    name="label254"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn415">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs45.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[44].sizedes==undefined)||(Variables.statOrdSize.dataSet[44].sizedes==null)||(Variables.statOrdSize.dataSet[44].sizedes == ''))?false:true"
+                                                    name="label255"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn416">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs46.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[45].sizedes==undefined)||(Variables.statOrdSize.dataSet[45].sizedes==null)||(Variables.statOrdSize.dataSet[45].sizedes == ''))?false:true"
+                                                    name="label256"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn417">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs47.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[46].sizedes==undefined)||(Variables.statOrdSize.dataSet[46].sizedes==null)||(Variables.statOrdSize.dataSet[46].sizedes == ''))?false:true"
+                                                    name="label257"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn418">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.totalPcs48.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[47].sizedes==undefined)||(Variables.statOrdSize.dataSet[47].sizedes==null)||(Variables.statOrdSize.dataSet[47].sizedes == ''))?false:true"
+                                                    name="label258"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow59">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn419">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord37.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[36].sizedes==undefined)||(Variables.statOrdSize.dataSet[36].sizedes==null)||(Variables.statOrdSize.dataSet[36].sizedes == ''))?false:true"
+                                                    name="label259"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn420">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord38.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[37].sizedes==undefined)||(Variables.statOrdSize.dataSet[37].sizedes==null)||(Variables.statOrdSize.dataSet[37].sizedes == ''))?false:true"
+                                                    name="label260"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn421">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord39.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[38].sizedes==undefined)||(Variables.statOrdSize.dataSet[38].sizedes==null)||(Variables.statOrdSize.dataSet[38].sizedes == ''))?false:true"
+                                                    name="label261"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn422">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord40.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[39].sizedes==undefined)||(Variables.statOrdSize.dataSet[39].sizedes==null)||(Variables.statOrdSize.dataSet[39].sizedes == ''))?false:true"
+                                                    name="label262"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn423">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord41.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[40].sizedes==undefined)||(Variables.statOrdSize.dataSet[40].sizedes==null)||(Variables.statOrdSize.dataSet[40].sizedes == ''))?false:true"
+                                                    name="label263"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn424">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord42.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[41].sizedes==undefined)||(Variables.statOrdSize.dataSet[41].sizedes==null)||(Variables.statOrdSize.dataSet[41].sizedes == ''))?false:true"
+                                                    name="label264"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn425">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord43.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[42].sizedes==undefined)||(Variables.statOrdSize.dataSet[42].sizedes==null)||(Variables.statOrdSize.dataSet[42].sizedes == ''))?false:true"
+                                                    name="label265"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn426">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord44.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[43].sizedes==undefined)||(Variables.statOrdSize.dataSet[43].sizedes==null)||(Variables.statOrdSize.dataSet[43].sizedes == ''))?false:true"
+                                                    name="label266"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn427">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord45.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[44].sizedes==undefined)||(Variables.statOrdSize.dataSet[44].sizedes==null)||(Variables.statOrdSize.dataSet[44].sizedes == ''))?false:true"
+                                                    name="label267"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn428">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord46.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[45].sizedes==undefined)||(Variables.statOrdSize.dataSet[45].sizedes==null)||(Variables.statOrdSize.dataSet[45].sizedes == ''))?false:true"
+                                                    name="label268"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn429">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord47.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[46].sizedes==undefined)||(Variables.statOrdSize.dataSet[46].sizedes==null)||(Variables.statOrdSize.dataSet[46].sizedes == ''))?false:true"
+                                                    name="label269"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn430">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutQtyord[0].qtyord48.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[47].sizedes==undefined)||(Variables.statOrdSize.dataSet[47].sizedes==null)||(Variables.statOrdSize.dataSet[47].sizedes == ''))?false:true"
+                                                    name="label270"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow60">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn431">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal37>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal37.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[36].sizedes==undefined)||(Variables.statOrdSize.dataSet[36].sizedes==null)||(Variables.statOrdSize.dataSet[36].sizedes == ''))?false:true"
+                                                    name="label271"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn432">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal38>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal38.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[37].sizedes==undefined)||(Variables.statOrdSize.dataSet[37].sizedes==null)||(Variables.statOrdSize.dataSet[37].sizedes == ''))?false:true"
+                                                    name="label272"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn433">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal39>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal39.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[38].sizedes==undefined)||(Variables.statOrdSize.dataSet[38].sizedes==null)||(Variables.statOrdSize.dataSet[38].sizedes == ''))?false:true"
+                                                    name="label273"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn434">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal40>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal40.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[39].sizedes==undefined)||(Variables.statOrdSize.dataSet[39].sizedes==null)||(Variables.statOrdSize.dataSet[39].sizedes == ''))?false:true"
+                                                    name="label274"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn435">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal41>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal41.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[40].sizedes==undefined)||(Variables.statOrdSize.dataSet[40].sizedes==null)||(Variables.statOrdSize.dataSet[40].sizedes == ''))?false:true"
+                                                    name="label275"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn436">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal42>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal42.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[41].sizedes==undefined)||(Variables.statOrdSize.dataSet[41].sizedes==null)||(Variables.statOrdSize.dataSet[41].sizedes == ''))?false:true"
+                                                    name="label276"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn437">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal43>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal43.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[41].sizedes==undefined)||(Variables.statOrdSize.dataSet[41].sizedes==null)||(Variables.statOrdSize.dataSet[41].sizedes == ''))?false:true"
+                                                    name="label277"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn438">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal44>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal44.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[43].sizedes==undefined)||(Variables.statOrdSize.dataSet[43].sizedes==null)||(Variables.statOrdSize.dataSet[43].sizedes == ''))?false:true"
+                                                    name="label278"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn439">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal45>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal45.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[44].sizedes==undefined)||(Variables.statOrdSize.dataSet[44].sizedes==null)||(Variables.statOrdSize.dataSet[44].sizedes == ''))?false:true"
+                                                    name="label279"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn440">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal46>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal46.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[45].sizedes==undefined)||(Variables.statOrdSize.dataSet[45].sizedes==null)||(Variables.statOrdSize.dataSet[45].sizedes == ''))?false:true"
+                                                    name="label280"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn441">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal47>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal47.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[46].sizedes==undefined)||(Variables.statOrdSize.dataSet[46].sizedes==null)||(Variables.statOrdSize.dataSet[46].sizedes == ''))?false:true"
+                                                    name="label281"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn442">
+                                                <wm-label conditionalclass="bind:{'bg-danger': Variables.tgridDyejob.FRow.bal48>0
+}" textalign="right" class="displayField" width="60" caption="bind:Variables.tgridDyejob.FRow.bal48.toLocaleString()" show="bind:((Variables.statOrdSize.dataSet[47].sizedes==undefined)||(Variables.statOrdSize.dataSet[47].sizedes==null)||(Variables.statOrdSize.dataSet[47].sizedes == ''))?false:true"
+                                                    name="label282"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow61">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn443">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[36].sizedes==undefined)||(Variables.statOrdSize.dataSet[36].sizedes==null)||(Variables.statOrdSize.dataSet[36].sizedes == ''))?false:true"
+                                                    name="lblComp37"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn444">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[37].sizedes==undefined)||(Variables.statOrdSize.dataSet[37].sizedes==null)||(Variables.statOrdSize.dataSet[37].sizedes == ''))?false:true"
+                                                    name="lblComp38"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn445">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[38].sizedes==undefined)||(Variables.statOrdSize.dataSet[38].sizedes==null)||(Variables.statOrdSize.dataSet[38].sizedes == ''))?false:true"
+                                                    name="lblComp39"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn446">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[39].sizedes==undefined)||(Variables.statOrdSize.dataSet[39].sizedes==null)||(Variables.statOrdSize.dataSet[39].sizedes == ''))?false:true"
+                                                    name="lblComp40"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn447">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[40].sizedes==undefined)||(Variables.statOrdSize.dataSet[40].sizedes==null)||(Variables.statOrdSize.dataSet[40].sizedes == ''))?false:true"
+                                                    name="lblComp41"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn448">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[41].sizedes==undefined)||(Variables.statOrdSize.dataSet[41].sizedes==null)||(Variables.statOrdSize.dataSet[41].sizedes == ''))?false:true"
+                                                    name="lblComp42"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn449">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[42].sizedes==undefined)||(Variables.statOrdSize.dataSet[42].sizedes==null)||(Variables.statOrdSize.dataSet[42].sizedes == ''))?false:true"
+                                                    name="lblComp43"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn450">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[43].sizedes==undefined)||(Variables.statOrdSize.dataSet[43].sizedes==null)||(Variables.statOrdSize.dataSet[43].sizedes == ''))?false:true"
+                                                    name="lblComp44"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn451">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[44].sizedes==undefined)||(Variables.statOrdSize.dataSet[44].sizedes==null)||(Variables.statOrdSize.dataSet[44].sizedes == ''))?false:true"
+                                                    name="lblComp45"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn452">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[45].sizedes==undefined)||(Variables.statOrdSize.dataSet[45].sizedes==null)||(Variables.statOrdSize.dataSet[45].sizedes == ''))?false:true"
+                                                    name="lblComp46"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn453">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[46].sizedes==undefined)||(Variables.statOrdSize.dataSet[46].sizedes==null)||(Variables.statOrdSize.dataSet[46].sizedes == ''))?false:true"
+                                                    name="lblComp47"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn454">
+                                                <wm-label textalign="right" class="displayField" width="60" caption="" show="bind:((Variables.statOrdSize.dataSet[47].sizedes==undefined)||(Variables.statOrdSize.dataSet[47].sizedes==null)||(Variables.statOrdSize.dataSet[47].sizedes == ''))?false:true"
+                                                    name="lblComp48"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}"
+            on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog>
+    </wm-view>
+</wm-page>

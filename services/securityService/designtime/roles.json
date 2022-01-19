@@ -1,0 +1,73 @@
+[ {
+  "name" : "admin",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
+}, {
+  "name" : "user",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
+}, {
+  "name" : "CUFABRECV_VIEWPAGE",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "CuttingFabReceived"
+  }
+}, {
+  "name" : "CUFABRECV_UPD",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "CuttingFabReceived"
+  }
+}, {
+  "name" : "QRYCUTTINGPROD",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "QueryCuttingBySize"
+  }
+}, {
+  "name" : "CUTTRANSFER_UPDREM",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "QueryJobTransfers"
+  }
+}, {
+  "name" : "CUTTRANSFER_CANCEL",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "QueryJobTransfers"
+  }
+}, {
+  "name" : "CUTTRANSFER_QRY",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "QueryJobTransfers"
+  }
+}, {
+  "name" : "QRYCUTTINGJOBS",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "QueryCuttingJobs"
+  }
+}, {
+  "name" : "QRYJOBTRANSFER",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "QueryJobTransfers"
+  }
+}, {
+  "name" : "QRYLASTJOBREMARKS",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "LastJobRemarks"
+  }
+}, {
+  "name" : "UPDLASTJOBREMARKS",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "LastJobRemarks"
+  }
+} ]

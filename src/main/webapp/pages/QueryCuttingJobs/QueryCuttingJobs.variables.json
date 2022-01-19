@@ -1,0 +1,144 @@
+{
+  "notifMsg" : {
+    "_id" : "wm-notifMsg-wm.NotificationVariable-1507445976380",
+    "name" : "notifMsg",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "alerttype",
+      "value" : "information",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "statPrgid" : {
+    "_id" : "wm-statPrgid-wm.Variable-1507435437996",
+    "name" : "statPrgid",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000W03",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statPrgName" : {
+    "_id" : "wm-statPrgName-wm.Variable-1507435462636",
+    "name" : "statPrgName",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Query Cutting Jobs",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svCu1000pk0QryJobcutOrder" : {
+    "_id" : "wm-svCu1000pk0QryJobcutOrder-wm.ServiceVariable-1519992686767",
+    "name" : "svCu1000pk0QryJobcutOrder",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.form1.formWidgets.ordnum.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pDyejob",
+      "value" : "bind:Widgets.form1.formWidgets.dyejob.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0QryJobCutOrderResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000pk0_qryJobCutOrder",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000pk0_qryJobCutOrder",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onError" : "svCu1000pk0QryJobcutOrderonError($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU1000PK0_QueryJobscut" : {
+    "_id" : "wm-serviceVariable1-wm.ServiceVariable-1507610925898",
+    "name" : "svProcCU1000PK0_QueryJobscut",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.gridOrder.selecteditem.ordnum",
+      "type" : "string"
+    }, {
+      "target" : "pDyejob",
+      "value" : "bind:Widgets.gridOrder.selecteditem.dyejob",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0QueryJobscutResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_QueryJobscut",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_QueryJobscut",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svQryReturnCallPage" : {
+    "_id" : "wm-svQryReturnCallPage-wm.ServiceVariable-1528193090383",
+    "name" : "svQryReturnCallPage",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pWmprogid",
+      "value" : "FD1000W03",
+      "type" : "string"
+    }, {
+      "target" : "pParamList",
+      "value" : "bind:expression(\"?pParam1=\" + \"pOrdnum=\"+Widgets.form1.formWidgets.ordnum.datavalue+\"&pDyejob=\"+Widgets.grid3.selecteditem.dyejob)",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryReturnCallPageResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryReturnCallPage",
+    "operationId" : "QueryExecutionController_executeQryReturnCallPage",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svQryReturnCallPageonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

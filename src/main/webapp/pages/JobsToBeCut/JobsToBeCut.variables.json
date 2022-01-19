@@ -1,0 +1,718 @@
+{
+  "lvSizeCut905" : {
+    "_id" : "wm-lvSizeCut905-wm.LiveVariable-1510382206499",
+    "name" : "lvSizeCut905",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Cut905",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "maxResults" : 16,
+    "designMaxResults" : 10,
+    "onSuccess" : "lvSizeCut905onSuccess($event, $scope)",
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "pfsdb",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "orderBy" : "dyejob asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "dyejob",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "DYEJOB",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 9,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "gmtseq",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "GMTSEQ",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 2,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "clrseqg",
+        "type" : "byte",
+        "fullyQualifiedType" : "byte",
+        "columnName" : "CLRSEQG",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 22,
+        "precision" : 2,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "fabseq",
+        "type" : "byte",
+        "fullyQualifiedType" : "byte",
+        "columnName" : "FABSEQ",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 22,
+        "precision" : 2,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "cutseq",
+        "type" : "short",
+        "fullyQualifiedType" : "short",
+        "columnName" : "CUTSEQ",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 22,
+        "precision" : 3,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "sizeseq",
+        "type" : "byte",
+        "fullyQualifiedType" : "byte",
+        "columnName" : "SIZESEQ",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 22,
+        "precision" : 2,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "ordnum",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "ORDNUM",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 12,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "szedes",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "SZEDES",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "lectcod",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "LECTCOD",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 4,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "szeratio",
+        "type" : "float",
+        "fullyQualifiedType" : "float",
+        "columnName" : "SZERATIO",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 22,
+        "precision" : 5,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      }, {
+        "fieldName" : "reversedir",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "REVERSEDIR",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 1,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "groupnum",
+        "type" : "byte",
+        "fullyQualifiedType" : "byte",
+        "columnName" : "GROUPNUM",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 22,
+        "precision" : 2,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Cut905",
+      "fullyQualifiedName" : "com.mu.cmt.pfs.pfsdb.Cut905",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "dyejob", "gmtseq", "clrseqg", "fabseq", "cutseq", "sizeseq", "ordnum" ]
+    },
+    "bindCount" : 2,
+    "tableName" : "CUT905",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "dyejob",
+        "value" : "bind:Widgets.gridDyejob.selecteditem.dyejob",
+        "type" : "string",
+        "matchMode" : "startignorecase",
+        "required" : false
+      } ]
+    },
+    "package" : "com.mu.cmt.pfs.pfsdb.Cut905"
+  },
+  "notifMsg" : {
+    "_id" : "wm-notifMsg-wm.NotificationVariable-1510129691642",
+    "name" : "notifMsg",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "alerttype",
+      "value" : "information",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "statPrgid" : {
+    "_id" : "wm-statPrgid-wm.Variable-1509959516434",
+    "name" : "statPrgid",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000W04",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statPrgName" : {
+    "_id" : "wm-statPrgName-wm.Variable-1509959545354",
+    "name" : "statPrgName",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Jobs to be Cut",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statRadiosetForDyejob" : {
+    "_id" : "wm-statRadiosetForDyejob-wm.Variable-1510375423293",
+    "name" : "statRadiosetForDyejob",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "Normal Dyejob",
+      "dataValue" : "N"
+    }, {
+      "name" : "Carcass",
+      "dataValue" : "o"
+    }, {
+      "name" : "Pattern Board",
+      "dataValue" : "r"
+    }, {
+      "name" : "Viseline",
+      "dataValue" : "m"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "statTypeSelect" : {
+    "_id" : "wm-statTypeSelect-wm.Variable-1510036982902",
+    "name" : "statTypeSelect",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "Released Date",
+      "dataValue" : "REL"
+    }, {
+      "name" : "Cutter Send Date",
+      "dataValue" : "SNT"
+    }, {
+      "name" : "WIP Jobs",
+      "dataValue" : "WIP"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "svProcCU1000PK0_GetCU900AvailMarkers" : {
+    "_id" : "wm-svProcCU1000PK0_GetCU900AvailMarkers-wm.ServiceVariable-1510050281294",
+    "name" : "svProcCU1000PK0_GetCU900AvailMarkers",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUserId",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pDYEJOB",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.dyejob",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0GetCu900availMarkersResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_GetCU900AvailMarkers",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_GetCU900AvailMarkers",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU1000PK0_GetCU900Dyejob" : {
+    "_id" : "wm-svProcCU1000PK0_GetCU900Dyejob-wm.ServiceVariable-1510036157842",
+    "name" : "svProcCU1000PK0_GetCU900Dyejob",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUserId",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pORDNUM",
+      "value" : "bind:Widgets.form1.formWidgets.pORDNUM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pDYEJOB",
+      "value" : "bind:Widgets.form1.formWidgets.pDYEJOB.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pFROMDATE",
+      "value" : "bind:Widgets.form1.formWidgets.pFROMDATE.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pTODATE",
+      "value" : "bind:Widgets.form1.formWidgets.pTODATE.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pFilterType",
+      "value" : "bind:Widgets.form1.formWidgets.pFilterType.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0GetCu900dyejobResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_GetCU900Dyejob",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_GetCU900Dyejob",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU900pk0_CreateAutoMarker" : {
+    "_id" : "wm-svProcCU900pk0_CreateAutoMarker-wm.ServiceVariable-1510487094699",
+    "name" : "svProcCU900pk0_CreateAutoMarker",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "p_dyejob",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.dyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_gmtseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.gmtseq",
+      "type" : "string"
+    }, {
+      "target" : "p_clrseqg",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.clrseqg",
+      "type" : "integer"
+    }, {
+      "target" : "p_fabseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.fabseq",
+      "type" : "integer"
+    }, {
+      "target" : "p_cutseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.cutseq",
+      "type" : "integer"
+    }, {
+      "target" : "p_ordnum",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.ordnum",
+      "type" : "string"
+    }, {
+      "target" : "p_usrid",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "p_modelvariant",
+      "value" : "bind:Widgets.txtVariant.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "p_fromwid",
+      "value" : "bind:Widgets.txtMrkrWidFrom.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "p_towid",
+      "value" : "bind:Widgets.txtMrkrWidTo.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "p_stage",
+      "value" : "bind:Widgets.txtStge.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "p_model_fabtyp",
+      "value" : "bind:Widgets.txtFabinModel.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "p_fabcode",
+      "value" : "bind:Widgets.txtFabCod.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "p_fabconstraint",
+      "value" : "bind:Widgets.txtFabCstintName.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "p_night_schedule",
+      "value" : "bind:Widgets.chkBoxNightMrkr.datavalue",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU900pk0_CreateAutoMarker",
+    "operationId" : "ProcedureExecutionController_executeProcCU900pk0_CreateAutoMarker",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU900pk0_CreateAutoMarkeronSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU900pk0_InsNewDyejob" : {
+    "_id" : "wm-svProcCU900pk0_InsNewDyejob-wm.ServiceVariable-1510224096263",
+    "name" : "svProcCU900pk0_InsNewDyejob",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUsrid",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pPrgid",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pDyejob",
+      "value" : "bind:Widgets.txtDyejob.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.txtOrdnum.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pGmtseq",
+      "value" : "bind:Widgets.txtGarment.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pClrseqg",
+      "value" : "bind:Widgets.txtColour.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "pFabseq",
+      "value" : "bind:Widgets.txtFabric.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "pCutlcn",
+      "value" : "bind:Widgets.selectCutUnt.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pRdyejob",
+      "value" : "bind:Widgets.txtRdyejob.datavalue",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU900pk0_InsNewDyejob",
+    "operationId" : "ProcedureExecutionController_executeProcCU900pk0_InsNewDyejob",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU900pk0_InsNewDyejobonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU900pk0_InsSizes" : {
+    "_id" : "wm-svProcCU900pk0_InsSizes-wm.ServiceVariable-1510459164875",
+    "name" : "svProcCU900pk0_InsSizes",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "p_dyejob",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.dyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_gmtseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.gmtseq",
+      "type" : "string"
+    }, {
+      "target" : "p_clrseqg",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.clrseqg",
+      "type" : "integer"
+    }, {
+      "target" : "p_fabseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.fabseq",
+      "type" : "integer"
+    }, {
+      "target" : "p_cutseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.cutseq",
+      "type" : "integer"
+    }, {
+      "target" : "p_ordnum",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.ordnum",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU900pk0_InsSizes",
+    "operationId" : "ProcedureExecutionController_executeProcCU900pk0_InsSizes",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU900pk0_InsSizesonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svQryCutlcn" : {
+    "_id" : "wm-serviceVariable1-wm.ServiceVariable-1510466127737",
+    "name" : "svQryCutlcn",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryCutlcnResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryCutlcn",
+    "operationId" : "QueryExecutionController_executeQryCutlcn",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "svQryGetCUTFAB" : {
+    "_id" : "wm-svQryGetCUTFAB-wm.ServiceVariable-1510468117615",
+    "name" : "svQryGetCUTFAB",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.ordnum",
+      "type" : "string"
+    }, {
+      "target" : "pClrseqg",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.clrseqg",
+      "type" : "integer"
+    }, {
+      "target" : "pGmtseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.gmtseq",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryGetCutfabResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryGetCUTFAB",
+    "operationId" : "QueryExecutionController_executeQryGetCUTFAB",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "svQryGetItemcod" : {
+    "_id" : "wm-svQryGetItemcod-wm.ServiceVariable-1510568448762",
+    "name" : "svQryGetItemcod",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryGetItemcodResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryGetItemcod",
+    "operationId" : "QueryExecutionController_executeQryGetItemcod",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "svQryLectraSze" : {
+    "_id" : "wm-svQryLectraSze-wm.ServiceVariable-1510651125140",
+    "name" : "svQryLectraSze",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "p_dyejob",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.dyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_gmtseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.gmtseq",
+      "type" : "string"
+    }, {
+      "target" : "p_clrseqg",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.clrseqg",
+      "type" : "string"
+    }, {
+      "target" : "p_fabseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.fabseq",
+      "type" : "string"
+    }, {
+      "target" : "p_cutseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.cutseq",
+      "type" : "string"
+    }, {
+      "target" : "p_ordnum",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.ordnum",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryLectraSzeResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryLectraSze",
+    "operationId" : "QueryExecutionController_executeQryLectraSze",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "svQrySzeDes" : {
+    "_id" : "wm-svQrySzeDes-wm.ServiceVariable-1510474592118",
+    "name" : "svQrySzeDes",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pDyejob",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.dyejob",
+      "type" : "string"
+    }, {
+      "target" : "pGmtseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.gmtseq",
+      "type" : "string"
+    }, {
+      "target" : "pClrseqg",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.clrseqg",
+      "type" : "integer"
+    }, {
+      "target" : "pFabseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.fabseq",
+      "type" : "integer"
+    }, {
+      "target" : "pCutseq",
+      "value" : "bind:Widgets.gridDyejob.selecteditem.cutseq",
+      "type" : "integer"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QrySzeDesResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQrySzeDes",
+    "operationId" : "QueryExecutionController_executeQrySzeDes",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

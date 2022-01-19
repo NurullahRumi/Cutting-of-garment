@@ -1,0 +1,164 @@
+{
+  "notifMsg" : {
+    "_id" : "wm-notifMsg-wm.NotificationVariable-1508047701263",
+    "name" : "notifMsg",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "title",
+      "value" : "bind:Variables.statPrgName.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "alerttype",
+      "value" : "error",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "statCutsts" : {
+    "_id" : "wm-statCutsts-wm.Variable-1508048443772",
+    "name" : "statCutsts",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "C - Completed",
+      "dataValue" : "C"
+    }, {
+      "name" : "P - In Progress",
+      "dataValue" : "P"
+    }, {
+      "name" : "S - Stock",
+      "dataValue" : "S"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "statPrgid" : {
+    "_id" : "wm-statPrgid-wm.Variable-1508040496363",
+    "name" : "statPrgid",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000W01",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statPrgName" : {
+    "_id" : "wm-statPrgName-wm.Variable-1508040524023",
+    "name" : "statPrgName",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Cutting Fabrics Received",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svProcCU1000PK0_QryCUFabReceived" : {
+    "_id" : "wm-svProcCU1000PK0_QryCUFabReceived-wm.ServiceVariable-1508046299192",
+    "name" : "svProcCU1000PK0_QryCUFabReceived",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.form1.formWidgets.pOrdnum.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pDyejob",
+      "value" : "bind:Widgets.form1.formWidgets.pDyejob.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pCutsts",
+      "value" : "bind:Widgets.form1.formWidgets.pCutsts.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0QryCufabReceivedResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_QryCUFabReceived",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_QryCUFabReceived",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU1000PK0_UpdFabReceived" : {
+    "_id" : "wm-svProcCU1000PK0_UpdFabReceived-wm.ServiceVariable-1508059937053",
+    "name" : "svProcCU1000PK0_UpdFabReceived",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUserId",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pDyejob",
+      "value" : "bind:Widgets.lblDyejob.caption",
+      "type" : "string"
+    }, {
+      "target" : "pFabseq",
+      "value" : "bind:Widgets.lblFabseq.caption",
+      "type" : "integer"
+    }, {
+      "target" : "pRecseq",
+      "value" : "bind:Widgets.lblRecseq.caption",
+      "type" : "integer"
+    }, {
+      "target" : "pNewCutsts",
+      "value" : "bind:Widgets.selectNewCutSts.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pNewKgsWgh",
+      "value" : "bind:Widgets.txtNewKgsWgh.datavalue",
+      "type" : "number"
+    }, {
+      "target" : "pNewRemarks",
+      "value" : "bind:Widgets.txtNewRemarks.datavalue",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_UpdFabReceived",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_UpdFabReceived",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU1000PK0_UpdFabReceivedonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  }
+}

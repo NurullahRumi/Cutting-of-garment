@@ -1,0 +1,119 @@
+<wm-page data-ng-controller="CuttingFabReceivedPageController" pagetitle="Cutting Fab Received" name="page1"> 
+    <wm-header content="header" name="header1"> 
+        <wm-param name="pTitle" value="bind:Variables.statPrgName.dataSet.dataValue" type="string"></wm-param> 
+    </wm-header> 
+    <wm-top-nav name="top_nav1" content="topnav"> 
+        <wm-param name="p_param" value="bind:pageParams.p_ordnum" type="string"></wm-param> 
+    </wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-form errormessage="" captionposition="left" title="" enctype="application/x-www-form-urlencoded" method="get" captionalign="left" name="form1" width="920"> 
+                <wm-layoutgrid columns="1" name="layoutgrid1"> 
+                    <wm-gridrow name="gridrow1"> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn1"> 
+                            <wm-form-field on-change="pOrdnumChange($event, $scope, newVal, oldVal)" name="pOrdnum" readonly="false" displayname="Order" key="pOrdnum" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn4"> 
+                            <wm-form-field on-change="pDyejobChange($event, $scope, newVal, oldVal)" name="pDyejob" readonly="false" displayname="Dyejob" key="pDyejob" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn5"> 
+                            <wm-form-field displayname="Cut Status" widget="select" show="true" type="custom" name="pCutsts" dataset="bind:Variables.statCutsts.dataSet" datafield="dataValue" displayfield="name"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn6"> 
+                            <wm-button class="btn-secondary" caption="Reset" type="button" margin="unset 0.5em" name="btnResetFilter" on-click="btnResetFilterClick($event, $scope)"></wm-button> 
+                            <wm-button class="btn-primary" caption="Query" type="button" margin="unset 0.5em" name="btnQuery" on-click="btnQueryClick($event, $scope)"></wm-button> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+            </wm-form> 
+            <wm-table filtermode="multicolumn" showrecordcount="true" pagesize="15" nodatamessage="No jobs received" spacing="condensed" title="Fabrics Received" dataset="bind:Variables.svProcCU1000PK0_QryCUFabReceived.dataSet.poutCuFabRecv" navigation="Classic" name="grid1" class="panel-primary" gridfirstrowselect="true"> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="80px" type="string" caption="Dyejob" binding="dyejob"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="90px" type="string" caption="Order</br>Number" binding="ordnum"></wm-table-column> 
+                <wm-table-column-group caption="Job Colour" name="group"> 
+                    <wm-table-column readonly="false" show="true" edit-widget-type="number" textalignment="right" width="50px" type="byte" caption="Seq" binding="clrseq"></wm-table-column> 
+                    <wm-table-column readonly="false" show="true" edit-widget-type="text" width="50px" type="string" caption="Desc" binding="wclrabb"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="50px" type="string" caption="Cut Unit" binding="lcncod"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="50px" type="string" caption="Cut Sts" binding="cutsts"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="50px" type="string" caption="Dye Unit" binding="dyelcn"></wm-table-column> 
+                <wm-table-column-group caption="Fabric" name="group1"> 
+                    <wm-table-column readonly="false" show="true" edit-widget-type="number" textalignment="right" width="50px" type="byte" caption="Seq" binding="fabseq"></wm-table-column> 
+                    <wm-table-column readonly="false" show="true" edit-widget-type="text" width="50px" type="string" caption="FabType" binding="wfabtyp"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="number" textalignment="right" width="40px" type="integer" caption="No.</br>Bales" binding="numbale"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="number" textalignment="right" width="50px" type="float" caption="Kgs</br>Rcv" binding="kgs"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="number" textalignment="right" width="50px" type="long" caption="Kgs</br>Cut" binding="kgscut"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="number" textalignment="right" width="50px" type="float" caption="Kgs</br>Wgh" binding="kgswgh"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="70px" type="string" caption="Delivery Note" binding="ddelnum"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="datetime" width="120px" type="datetime" caption="Fabrics received</br>on Date/Time" binding="recdate"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="50px" type="string" caption="Mak</br>Unit" binding="maklcn"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" edit-widget-type="text" width="60px" type="string" caption="MkUp Line" binding="mkline"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" searchable="false" edit-widget-type="text" width="150px" type="string" caption="Remarks" binding="remarks"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" searchable="false" edit-widget-type="text" accessroles="CUFABRECV_UPD" width="60px" widget-type="button" type="string" caption="" binding="updateColumn"> 
+                    <wm-button caption="{{row.getProperty('customField') || ' '}}" show="true" class="btn-sm btn-primary" iconclass="wi wi-edit" on-click="updateColumnAction(selectedItemData)" data-ng-class=""></wm-button> 
+                </wm-table-column> 
+            </wm-table> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+    <wm-view class="dialog-view" name="view1"> 
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog> 
+    </wm-view> 
+    <wm-view class="dialog-view" name="view2"> 
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Update" iconclass="wi wi-edit" name="dialogUpdate" width="500"> 
+            <wm-layoutgrid name="layoutgrid3"> 
+                <wm-gridrow class="bordered-bottom" name="gridrow4"> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn9"> 
+                        <wm-label padding="unset 0.5em" caption="Dyejob" name="label1" class="col-md-3 control-label" width="95" textalign="right"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn10"> 
+                        <wm-label padding="unset 0.5em" caption="bind:Widgets.grid1.selecteditem.dyejob" name="lblDyejob" class="displayField" width="80"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn17_1" columnwidth="2"> 
+                        <wm-label padding="unset 0.5em" caption="Fab Seq" name="label3" class="col-md-3 control-label" width="95" textalign="right"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn18" columnwidth="2"> 
+                        <wm-label padding="unset 0.5em" caption="bind:Widgets.grid1.selecteditem.fabseq" name="lblFabseq" class="displayField" width="80"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn19" columnwidth="2"> 
+                        <wm-label padding="unset 0.5em" name="label5" caption="RecSeq" class="col-md-3 control-label" width="95" textalign="right"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn name="gridcolumn20" columnwidth="2"> 
+                        <wm-label padding="unset 0.5em" name="lblRecseq" class="displayField" width="80" caption="bind:Widgets.grid1.selecteditem.recseq"></wm-label> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow6_1"> 
+                    <wm-gridcolumn name="gridcolumn20_1" columnwidth="12"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow6"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn12_1"> 
+                        <wm-label show="bind:((Variables.statUsrscncod.dataSet.dataValue==&quot;SR&quot;) ||(Variables.statUsrlcncod.dataSet.dataValue !==Widgets.grid1.selecteditem.lcncod))?false:true" padding="unset 0.5em" name="label7" caption="Cut Status" class="col-md-3 control-label" width="95" textalign="right"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn13"> 
+                        <wm-select show="bind:((Variables.statUsrscncod.dataSet.dataValue==&quot;SR&quot;) ||(Variables.statUsrlcncod.dataSet.dataValue !==Widgets.grid1.selecteditem.lcncod))?false:true" textalign="left" name="selectNewCutSts" dataset="bind:Variables.statCutsts.dataSet" datafield="dataValue" displayfield="name" width="120" datavalue="bind:Widgets.grid1.selecteditem.cutsts"></wm-select> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow7"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn14"> 
+                        <wm-label padding="unset 0.5em" name="label8" caption="Kgs Wgh" class="col-md-3 control-label" width="95" textalign="right"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn15"> 
+                        <wm-text name="txtNewKgsWgh" width="80" maxchars="5" type="number" step="0.01" datavalue="bind:Widgets.grid1.selecteditem.kgswgh"></wm-text> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow8"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn16"> 
+                        <wm-label padding="unset 0.5em" name="label9" caption="Remarks" class="col-md-3 control-label" width="95" textalign="right"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn17"> 
+                        <wm-text name="txtNewRemarks" width="200" maxchars="25" datavalue="bind:Widgets.grid1.selecteditem.remarks"></wm-text> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+            <wm-dialogactions name="dialogactions1"> 
+                <wm-button class="btn-primary" caption="Save" type="button" margin="unset 0.5em" name="button5_1" on-click="button5_1Click($event, $scope)"></wm-button> 
+                <wm-button class="btn-warning" caption="Cancel" on-click="closeDialog()" name="button4_1"></wm-button> 
+            </wm-dialogactions> 
+        </wm-dialog> 
+    </wm-view> 
+</wm-page>

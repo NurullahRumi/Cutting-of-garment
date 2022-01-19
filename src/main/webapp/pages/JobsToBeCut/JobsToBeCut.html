@@ -1,0 +1,671 @@
+<wm-page data-ng-controller="JobsToBeCutPageController" pagetitle="Jobs To Be Cut" name="page1"> 
+    <wm-header content="header" name="header1"> 
+        <wm-param name="pTitle" value="bind:Variables.statPrgName.dataSet.dataValue" type="string"></wm-param> 
+    </wm-header> 
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-form errormessage="" captionposition="top" title="" enctype="application/x-www-form-urlencoded" method="get" captionalign="left" name="form1"> 
+                <wm-layoutgrid columns="1" name="layoutgrid1"> 
+                    <wm-gridrow name="gridrow1"> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn1"> 
+                            <wm-form-field readonly="false" name="pORDNUM" displayname="Order No" key="pORDNUM" type="string" show="true" widget="text"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn6"> 
+                            <wm-form-field readonly="false" name="pDYEJOB" displayname="Dyejob" key="pDYEJOB" type="string" show="true" widget="text"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn7"> 
+                            <wm-form-field readonly="false" name="pFilterType" displayname="Filter By" key="pFilterType" type="string" show="true" widget="select" dataset="bind:Variables.statTypeSelect.dataSet" datafield="dataValue" displayfield="name" defaultvalue="bind:Variables.statTypeSelect.dataSet[2].dataValue"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn8"> 
+                            <wm-form-field readonly="false" name="pFROMDATE" displayname="From" key="pFROMDATE" type="string" show="true" widget="date" datepattern="yyyy-MM-dd"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn9"> 
+                            <wm-form-field readonly="false" name="pTODATE" displayname="To" key="pTODATE" type="string" show="true" widget="date" datepattern="yyyy-MM-dd"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn10"> 
+                            <wm-buttongroup horizontalalign="left" class="form-action col-md-12" name="buttongroup1"> 
+                                <wm-button caption="Query" type="submit" class="btn-primary" name="button3" margin="15px unset unset unset" on-click="button3Click($event, $scope)"></wm-button> 
+                                <wm-button caption="Reset" type="reset" class="btn-secondary" name="button1" margin="15px unset unset unset" on-click="button1Click($event, $scope)"></wm-button> 
+                            </wm-buttongroup> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+            </wm-form> 
+            <wm-table title="" dataset="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs" navigation="None" name="gridDyejob" height="125" spacing="condensed" gridfirstrowselect="true"> 
+                <wm-table-column binding="cutseq" caption="Cut Seq" type="integer" width="40px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="cutlcn" caption="Cut Unit" type="string" width="50px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="dyejob" caption="Dyejob" type="string" width="90px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="ordnum" caption="Order No" type="string" width="80px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column-group name="group" caption="<-GMT->"> 
+                    <wm-table-column binding="gmtseq" caption="Seq" type="string" width="40px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="clrseqg" caption="Clr" type="byte" width="40px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column-group name="group1" caption="<-Fabric->"> 
+                    <wm-table-column binding="fabseq" caption="Seq" type="byte" width="40px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="wfabtyp" caption="Type" type="string" width="40px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column binding="wdyests" caption="Dye Sts" type="string" width="40px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="fabsts" caption="Fab Sts" type="string" width="50px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="wfinalisedwid" caption="Finalised Wid" type="long" width="70px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="relaxedwid" caption="Relaxed Wid/cm" type="float" width="70px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="geometryname" caption="Geometry Name" type="string" width="120px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="relaxedlen" caption="Relaxed Mts" type="double" width="100px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column-group name="group2" caption=""> 
+                    <wm-table-column binding="pattfilename" caption="Pattern File" type="string" width="170px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="manualMarkerind" caption="Manual Marker" type="string" width="60px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="originalMarkerfilename" caption="Orginal  Markerfilename" type="string" width="190px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column binding="gmtcmplxity" caption="Garment  Complexity" type="string" width="100px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="numply" caption="Num of Plies" type="integer" width="50px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="jobexefilename" caption="Execution File" type="string" width="170px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="status" caption="Status" type="string" width="50px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column-group name="group3" caption="Send To Cutter"> 
+                    <wm-table-column binding="markerfilename" caption="Marker File" type="string" width="170px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="instructionfilename" caption="Instruction Filename" type="string" width="170px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="cutterSenddat" caption="Sent to Cutter On" type="datetime" width="170px" datepattern="dd-MMM-yyyy HH:mm" formatpattern="toDate" edit-widget-type="datetime" show="true" readonly="false"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column-group name="group4" caption="Created By/On"> 
+                    <wm-table-column binding="createid" caption="" type="string" width="70px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    <wm-table-column binding="createdate" caption="" type="datetime" width="120px" datepattern="dd-MMM-yyyy HH:mm" formatpattern="toDate" edit-widget-type="datetime" show="true" readonly="false"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column binding="relid" caption="Released By" type="string" width="70px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="reldate" caption="Released On" type="datetime" width="120px" datepattern="dd-MMM-yyyy HH:mm" formatpattern="toDate" edit-widget-type="datetime" show="true" readonly="false"></wm-table-column> 
+            </wm-table> 
+            <wm-panel iconclass="" autoclose="outsideClick" title="Fabric Details" name="panel1" class="panel-info" collapsible="true"> 
+                <wm-layoutgrid name="layoutgrid2"> 
+                    <wm-gridrow name="gridrow2"> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn7_1"> 
+                            <wm-label padding="unset 0.5em" name="label1" caption="Cps" class="col-md-3 control-label" width="35" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label2" width="155" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wfabcps"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn11"> 
+                            <wm-label padding="unset 0.5em" name="label3" caption="SKU" class="col-md-3 control-label" width="35" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" width="155" class="displayField" name="label4" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wskuno"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn12"> 
+                            <wm-label padding="unset 0.5em" name="label5" width="100" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wgmtdes"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn13"> 
+                            <wm-label padding="unset 0.5em" name="label6" width="100" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wgclrdes"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn14"> 
+                            <wm-label padding="unset 0.5em" name="label7" caption="Ref Job" class="col-md-3 control-label" width="55" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label8" width="130" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].rdyejob"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn19"> 
+                            <wm-label padding="unset 0.5em" name="label11" caption="Remarks" class="col-md-3 control-label" width="60" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label12" width="330" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].remarks"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                    <wm-gridrow name="gridrow3"> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn9_1"> 
+                            <wm-label padding="unset 0.5em" name="label13" caption="Cutting JobName" class="col-md-3 control-label" width="110" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label14" width="180" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].cutjobname"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn20"> 
+                            <wm-label padding="unset 0.5em" name="label15" caption="Cancelled By/On" class="col-md-3 control-label" width="105" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label17" class="displayField" width="55" margin="unset 5px unset unset" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].cancelid"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label16" width="130" class="displayField" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].canceldate"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn21"> 
+                            <wm-label padding="unset 0.5em" name="label19" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wcalstn"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label18" caption="C/S" class="col-md-3 control-label" width="30" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn22"> 
+                            <wm-label padding="unset 0.5em" name="label20" caption="Ind" class="col-md-3 control-label" width="30" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label21" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wfabind"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn10_1"> 
+                            <wm-label padding="unset 0.5em" name="label22" caption="g/m2" class="col-md-3 control-label" width="40" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label23" class="displayField" width="50" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wfabwgt"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn34"> 
+                            <wm-label padding="unset 0.5em" name="label25" caption="Gg" class="col-md-3 control-label" width="40" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                            <wm-label padding="unset 0.5em" name="label26" class="displayField" width="50" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wmchgau"></wm-label> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn23"> 
+                            <wm-label padding="unset 0.5em" name="label24" class="displayField" width="300"></wm-label> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+            </wm-panel> 
+            <wm-layoutgrid name="layoutgrid11"> 
+                <wm-gridrow name="gridrow35" padding="unset unset 10px unset"> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn232"> 
+                        <wm-button class="btn-default" caption="Add New Job" type="button" margin="unset 0.5em" name="button14" width="190" on-click="button14Click($event, $scope)"></wm-button> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn234"> 
+                        <wm-button class="btn-default" caption="1. Cutting Transfer" type="button" margin="unset 0.5em" width="190" name="button17"></wm-button> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn235"> 
+                        <wm-button class="btn-default" caption="3. Cancel Job" type="button" margin="unset 0.5em" name="button5" width="190" on-click="button5Click($event, $scope)"></wm-button> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn236"> 
+                        <wm-button class="btn-default" caption="c. Fetch relaxed mts" type="button" margin="unset 0.5em" name="button6" width="190"></wm-button> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn237"> 
+                        <wm-button class="btn-default" caption="9. Print Job to be cut" type="button" margin="unset 0.5em" name="button7" width="190"></wm-button> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn233"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="Available Markers"> 
+                    <wm-table title="" dataset="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker" navigation="None" name="grid2" spacing="condensed" height="100"> 
+                        <wm-table-column binding="seq" caption="Seq" type="integer" width="50px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="varianttype" caption="Marker Type" type="string" width="80px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="stage" caption="Stage" type="string" width="50px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="fabwid" caption="Marker Wid" type="float" width="50px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="nopcs" caption="No. Pce" type="double" width="50px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="modelvariant" caption="Variant" type="string" width="120px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="modelFabtyp" caption="Fabric in Model" type="string" width="80px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="pattfilename" caption="Pattern Used" type="string" width="170px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="markerfilename" caption="Marker File" type="string" width="190px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="markerlength" caption="Marker Length" type="double" width="70px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="markerefficiency" caption="% Eff" type="float" width="60px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="automarkingProcminutes" caption="Process Minutes" type="integer" width="60px" textalignment="right" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="status" caption="Status" type="string" width="60px" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                    </wm-table> 
+                    <wm-layoutgrid name="layoutgrid3"> 
+                        <wm-gridrow name="gridrow5"> 
+                            <wm-gridcolumn columnwidth="8" name="gridcolumn25_1"> 
+                                <wm-label padding="unset 0.5em" name="label25_1" caption="Marker Remarks" class="col-md-3 control-label" width="110" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label26_1" class="displayField" width="680" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].remarks"></wm-label> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn26"> 
+                                <wm-label padding="unset 0.5em" name="label27" caption="Dyejob:" class="col-md-3 control-label" width="50" margin="unset 5px unset unset"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label28" class="displayField" width="100" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].dyejob"></wm-label> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn37"> 
+                                <wm-label padding="unset 0.5em" name="label33" caption="Manual Markers"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label34" caption="Pattern Filename"></wm-label> 
+                            </wm-gridcolumn> 
+                        </wm-gridrow> 
+                        <wm-gridrow name="gridrow7" padding="unset unset 10px unset"> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn29"> 
+                                <wm-button class="btn-default" caption="6. Download Marker File" type="button" margin="unset 0.5em" name="button9" width="190"></wm-button> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn31_1"> 
+                                <wm-button class="btn-default" caption="7. View Mini Marker" type="button" margin="unset 0.5em" name="button10" width="190"></wm-button> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn32_1"> 
+                                <wm-button class="btn-default" caption="a. Download Pattern File" type="button" margin="unset 0.5em" name="button11" width="190"></wm-button> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn33_1"> 
+                                <wm-button class="btn-default" caption="b. Cancel Marker" type="button" margin="unset 0.5em" name="button12" width="190"></wm-button> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn34_1"> 
+                                <wm-button class="btn-default" caption="8. Upload Manual Marker" type="button" margin="unset 0.5em" name="button13" width="190"></wm-button> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="2" name="gridcolumn30_1"> 
+                                <wm-text name="text3"></wm-text> 
+                            </wm-gridcolumn> 
+                        </wm-gridrow> 
+                    </wm-layoutgrid> 
+                    <wm-layoutgrid name="layoutgrid4" class="bordered"> 
+                        <wm-gridrow name="gridrow7_1"> 
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn34_2"> 
+                                <wm-layoutgrid name="layoutgrid5"> 
+                                    <wm-gridrow name="gridrow10" padding="5px unset unset unset"> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn40"> 
+                                            <wm-label padding="unset 0.5em" name="label32" caption="LectraSize" class="badge"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn50"> 
+                                            <wm-label name="label37" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod1"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn51"> 
+                                            <wm-label name="label42" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod2"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn52"> 
+                                            <wm-label name="label47" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod3"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn53"> 
+                                            <wm-label name="label52" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod4"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn41"> 
+                                            <wm-label name="label57" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod5"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow13"> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn75"> 
+                                            <wm-label padding="unset 0.5em" name="label33_1" caption="Ratio" class="badge"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn164"> 
+                                            <wm-label name="label38" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio1"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn165"> 
+                                            <wm-label name="label43" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio2"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn166"> 
+                                            <wm-label name="label48" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio3"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn167"> 
+                                            <wm-label name="label53" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio4"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn161"> 
+                                            <wm-label name="label58" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio5"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow31_1"> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn168_1"> 
+                                            <wm-label padding="unset 0.5em" name="label31" caption="Size Desc" class="badge"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn169_1"> 
+                                            <wm-label name="label36" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes1"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn170_1"> 
+                                            <wm-label name="label41" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes2"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn171_1"> 
+                                            <wm-label name="label46" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes3"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn172_1"> 
+                                            <wm-label name="label51" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes4"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn173_1"> 
+                                            <wm-label name="label148" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes5"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow14"> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn80"> 
+                                            <wm-label padding="unset 0.5em" name="label34_1" caption="Dir reverse" class="badge"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn168"> 
+                                            <wm-label name="label39" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir1"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn169"> 
+                                            <wm-label name="label44" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir2"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn170"> 
+                                            <wm-label name="label49" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir3"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn171"> 
+                                            <wm-label name="label54" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir4"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn85"> 
+                                            <wm-label name="label59" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir5"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow15"> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn86"> 
+                                            <wm-label padding="unset 0.5em" name="label35" caption="Group No" class="badge"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn172"> 
+                                            <wm-label name="label40" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum1"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn173"> 
+                                            <wm-label name="label45" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum2"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn174"> 
+                                            <wm-label name="label50" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum3"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn175"> 
+                                            <wm-label name="label55" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum4"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn91"> 
+                                            <wm-label name="label60" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum5"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                </wm-layoutgrid> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="8" name="gridcolumn35"> 
+                                <wm-layoutgrid name="layoutgrid6"> 
+                                    <wm-gridrow name="gridrow11" padding="5px unset unset unset"> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn161_1"> 
+                                            <wm-label name="label149" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes6"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn54"> 
+                                            <wm-label name="label66" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes7"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn55"> 
+                                            <wm-label name="label71" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes8"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn56"> 
+                                            <wm-label name="label76" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes9"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn57"> 
+                                            <wm-label name="label81" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes10"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn58"> 
+                                            <wm-label name="label86" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes11"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn59"> 
+                                            <wm-label name="label91" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes12"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn60"> 
+                                            <wm-label name="label96" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes13"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn61"> 
+                                            <wm-label name="label101" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes14"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn62"> 
+                                            <wm-label name="label106" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes15"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn63"> 
+                                            <wm-label name="label111" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szedes16"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow12"> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn44"> 
+                                            <wm-label name="label62" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod6"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn64"> 
+                                            <wm-label name="label67" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod7"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn65"> 
+                                            <wm-label name="label72" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod8"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn66"> 
+                                            <wm-label name="label77" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod9"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn67"> 
+                                            <wm-label name="label82" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod10"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn68"> 
+                                            <wm-label name="label87" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod11"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn69"> 
+                                            <wm-label name="label92" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod12"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn70"> 
+                                            <wm-label name="label97" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod13"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn71"> 
+                                            <wm-label name="label102" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod14"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn72"> 
+                                            <wm-label name="label107" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod15"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn73"> 
+                                            <wm-label name="label112" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].lectcod16"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow16"> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn92"> 
+                                            <wm-label name="label63" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio6"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn128"> 
+                                            <wm-label name="label68" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio7"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn129"> 
+                                            <wm-label name="label73" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio8"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn130"> 
+                                            <wm-label name="label78" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio9"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn131"> 
+                                            <wm-label name="label83" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio10"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn132"> 
+                                            <wm-label name="label88" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio11"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn133"> 
+                                            <wm-label name="label93" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio12"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn134"> 
+                                            <wm-label name="label98" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio13"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn135"> 
+                                            <wm-label name="label103" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio14"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn136"> 
+                                            <wm-label name="label108" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio15"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn137"> 
+                                            <wm-label name="label113" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].szeratio16"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow17"> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn109"> 
+                                            <wm-label name="label64" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir6"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn113"> 
+                                            <wm-label name="label69" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir7"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn138"> 
+                                            <wm-label name="label74" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir8"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn142"> 
+                                            <wm-label name="label79" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir9"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn139"> 
+                                            <wm-label name="label84" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir10"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn140"> 
+                                            <wm-label name="label89" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir11"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn141"> 
+                                            <wm-label name="label94" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir12"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn143"> 
+                                            <wm-label name="label99" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir13"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn146"> 
+                                            <wm-label name="label104" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir14"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn147"> 
+                                            <wm-label name="label109" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir15"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn144"> 
+                                            <wm-label name="label114" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].reversedir16"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow18"> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn116"> 
+                                            <wm-label name="label65" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum6"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn148"> 
+                                            <wm-label name="label70" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum7"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn149"> 
+                                            <wm-label name="label75" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum8"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn150"> 
+                                            <wm-label name="label80" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum9"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn151"> 
+                                            <wm-label name="label85" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum10"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn152"> 
+                                            <wm-label name="label90" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum11"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn153"> 
+                                            <wm-label name="label95" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum12"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn154"> 
+                                            <wm-label name="label100" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum13"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn155"> 
+                                            <wm-label name="label105" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum14"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn156"> 
+                                            <wm-label name="label110" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum15"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="1" name="gridcolumn157"> 
+                                            <wm-label name="label115" class="displayField" width="60" caption="bind:Variables.svProcCU1000PK0_GetCU900AvailMarkers.dataSet.poutMarker[$i].groupnum16"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                </wm-layoutgrid> 
+                            </wm-gridcolumn> 
+                        </wm-gridrow> 
+                    </wm-layoutgrid> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="Marker Preparation"> 
+                    <wm-layoutgrid name="layoutgrid7"> 
+                        <wm-gridrow name="gridrow29" padding="10px unset"> 
+                            <wm-gridcolumn columnwidth="3" name="gridcolumn218"> 
+                                <wm-label padding="unset 0.5em" name="label201" caption="Fab orientation" class="col-md-3 control-label" width="100" margin="unset 5px unset unset"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label202" class="displayField" width="35" margin="unset 5px unset unset" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wfaborien"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label203" class="displayField" width="150" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wfaboriendes"></wm-label> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="3" name="gridcolumn219"> 
+                                <wm-label padding="unset 0.5em" name="label204" caption="Markertype" width="100" class="col-md-3 control-label" margin="unset 5px unset unset"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label205" class="displayField" margin="unset 5px unset unset" width="35" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wmrkrtyp"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="label206" class="displayField" width="150" caption="bind:Variables.svProcCU1000PK0_GetCU900Dyejob.dataSet.poutDyejobs[$i].wmrkrtypdes"></wm-label> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn220"> 
+                                <wm-button class="btn-default" caption="4. Fetch Sizes" type="button" margin="unset 0.5em" name="button13_1" width="190" on-click="button13_1Click($event, $scope)"></wm-button> 
+                            </wm-gridcolumn> 
+                        </wm-gridrow> 
+                    </wm-layoutgrid> 
+                    <wm-layoutgrid name="layoutgrid12"> 
+                        <wm-gridrow name="gridrow37"> 
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn240" horizontalalign="left"> 
+                                <wm-label padding="unset 0.5em" name="label214_1" caption="Total Ratio" class="col-md-3 control-label" width="100" textalign="right" margin="unset 5px unset 20px"></wm-label> 
+                                <wm-label padding="unset 0.5em" name="lblTotRatio" class="displayField" width="80" caption="bind:Variables.lvSizeCut905.dataSet.data[0].szeratio + Variables.lvSizeCut905.dataSet.data[1].szeratio + Variables.lvSizeCut905.dataSet.data[2].szeratio + Variables.lvSizeCut905.dataSet.data[3].szeratio + Variables.lvSizeCut905.dataSet.data[4].szeratio + Variables.lvSizeCut905.dataSet.data[5].szeratio + Variables.lvSizeCut905.dataSet.data[6].szeratio + Variables.lvSizeCut905.dataSet.data[7].szeratio + Variables.lvSizeCut905.dataSet.data[8].szeratio + Variables.lvSizeCut905.dataSet.data[9].szeratio + Variables.lvSizeCut905.dataSet.data[10].szeratio + Variables.lvSizeCut905.dataSet.data[11].szeratio + Variables.lvSizeCut905.dataSet.data[12].szeratio + Variables.lvSizeCut905.dataSet.data[13].szeratio + Variables.lvSizeCut905.dataSet.data[14].szeratio + Variables.lvSizeCut905.dataSet.data[15].szeratio"></wm-label> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="8" name="gridcolumn267"></wm-gridcolumn> 
+                        </wm-gridrow> 
+                    </wm-layoutgrid> 
+                    <wm-layoutgrid name="layoutgrid14_1"> 
+                        <wm-gridrow name="gridrow31_2"> 
+                            <wm-gridcolumn columnwidth="5" name="gridcolumn153_1"> 
+                                <wm-table editmode="inline" title="" dataset="bind:Variables.lvSizeCut905.dataSet" navigation="None" name="gridSizes" height="175" spacing="condensed" confirmdelete="" deletemessage="" on-beforerowupdate="gridSizesBeforerowupdate($event, $scope, $rowData)" width="480"> 
+                                    <wm-table-column binding="szedes" caption="Size Desc" type="string" width="70px" generator="assigned" readonly="true" edit-widget-type="text" show="true"></wm-table-column> 
+                                    <wm-table-column binding="lectcod" caption="Lectra Size" type="string" width="70px" generator="assigned" readonly="true" edit-widget-type="text" show="true"></wm-table-column> 
+                                    <wm-table-column binding="szeratio" caption="Ratio" type="float" width="50px" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                                    <wm-table-column binding="reversedir" caption="Direction Reversed" type="string" width="70px" primary-key="false" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-table-column> 
+                                    <wm-table-column binding="groupnum" caption="Group No" type="byte" width="70px" primary-key="false" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-table-column> 
+                                    <wm-table-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-table-column> 
+                                    <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Update" action="editRow()" disabled="false"></wm-table-row-action> 
+                                </wm-table> 
+                            </wm-gridcolumn> 
+                            <wm-gridcolumn columnwidth="7" name="gridcolumn154_1"> 
+                                <wm-layoutgrid name="layoutgrid15_1"> 
+                                    <wm-gridrow name="gridrow33_1"> 
+                                        <wm-gridcolumn columnwidth="8" name="gridcolumn157_1"> 
+                                            <wm-label padding="unset 0.5em" caption="Latest Pattern Details" class="col-md-3 control-label" width="135" textalign="right" margin="unset 5px unset unset" name="label149_1"></wm-label> 
+                                            <wm-label padding="unset 0.5em" class="displayField" width="240" name="label150"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn158"> 
+                                            <wm-label padding="unset 0.5em" caption="Details on latest marker already done" class="col-md-3 control-label" width="400" textalign="center" fontsize="13" name="label148_1"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow34"> 
+                                        <wm-gridcolumn columnwidth="8" name="gridcolumn159"> 
+                                            <wm-label padding="unset 0.5em" class="displayField" width="400" name="label151"></wm-label> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn160"> 
+                                            <wm-label padding="unset 0.5em" name="label231" class="col-md-3 control-label" textalign="right" margin="unset 5px unset unset" caption="Type of Marker:" width="100"></wm-label> 
+                                            <wm-label padding="unset 0.5em" name="label232" class="displayField" width="75"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow35_1"> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn161_2"> 
+                                            <wm-label padding="unset 0.5em" caption="Variant Name:" class="col-md-3 control-label" width="100" textalign="right" margin="unset 5px unset unset" name="label221"></wm-label> 
+                                            <wm-text name="txtVariant" width="115" maxchars="30"></wm-text> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn169_2"> 
+                                            <wm-label padding="unset 0.5em" caption="Fabric in Model:" class="col-md-3 control-label" width="100" textalign="right" margin="unset 5px unset unset" name="label223"></wm-label> 
+                                            <wm-text width="115" name="txtFabinModel" maxchars="30"></wm-text> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn162"> 
+                                            <wm-label padding="unset 0.5em" name="label233" class="col-md-3 control-label" textalign="right" margin="unset 5px unset unset" caption="Variant Name:" width="100"></wm-label> 
+                                            <wm-label padding="unset 0.5em" name="label234" class="displayField" width="80"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow37_1"> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn165_1"> 
+                                            <wm-label padding="unset 0.5em" caption="Fabric Constraint Name:" class="col-md-3 control-label" width="100" textalign="right" margin="unset 5px unset unset" name="label224"></wm-label> 
+                                            <wm-select name="txtFabCstintName" width="115" datafield="itemcod" dataset="bind:Variables.svQryGetItemcod.dataSet" displayfield="itemcod"></wm-select> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn170_2"> 
+                                            <wm-label padding="unset 0.5em" caption="Fabric Code:" class="col-md-3 control-label" width="100" textalign="right" margin="unset 5px unset unset" name="label225"></wm-label> 
+                                            <wm-text width="115" name="txtFabCod" maxchars="30"></wm-text> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn166_1"> 
+                                            <wm-label padding="unset 0.5em" name="label235" class="col-md-3 control-label" margin="unset 5px unset unset" textalign="right" caption="Fab in Model:" width="100"></wm-label> 
+                                            <wm-label padding="unset 0.5em" name="label236" class="displayField" width="80"></wm-label> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow38_1"> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn167_1"> 
+                                            <wm-label padding="unset 0.5em" caption="Marker Width From:" class="col-md-3 control-label" width="130" textalign="right" margin="unset 5px unset unset" name="label226"></wm-label> 
+                                            <wm-text width="70" name="txtMrkrWidFrom" type="number" maxchars="30"></wm-text> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn171_2"> 
+                                            <wm-label padding="unset 0.5em" name="label228" class="col-md-3 control-label" caption="To:" width="40" textalign="right" margin="unset 5px unset unset"></wm-label> 
+                                            <wm-text width="60" name="txtMrkrWidTo" type="number" maxchars="30"></wm-text> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn172_2"> 
+                                            <wm-label padding="unset 0.5em" class="col-md-3 control-label" caption="Stage:" width="45" textalign="right" margin="unset 5px unset unset" name="label229"></wm-label> 
+                                            <wm-text width="50" name="txtStge" maxchars="3"></wm-text> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn168_2"> 
+                                            <wm-checkbox caption="Run marker at night" class="col-md-push-3 col-md-9" name="chkBoxNightMrkr" checkedvalue="Y" width="150"></wm-checkbox> 
+                                        </wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                    <wm-gridrow name="gridrow36"> 
+                                        <wm-gridcolumn columnwidth="8" name="gridcolumn163" horizontalalign="center"> 
+                                            <wm-button class="btn-default" caption="5. Req Automatic Marker" type="button" margin="unset 0.5em" name="button18" width="190" on-click="button18Click($event, $scope)"></wm-button> 
+                                        </wm-gridcolumn> 
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn164_1"></wm-gridcolumn> 
+                                    </wm-gridrow> 
+                                </wm-layoutgrid> 
+                            </wm-gridcolumn> 
+                        </wm-gridrow> 
+                    </wm-layoutgrid> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+    <wm-view class="dialog-view" name="view1"> 
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog> 
+    </wm-view> 
+    <wm-view class="dialog-view" name="view2"> 
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Add New Job" iconclass="" name="dialogAddJob" on-opened="dialogAddJobOpened($event, $scope)"> 
+            <wm-dialogactions name="dialogactions1"> 
+                <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button15" width="70"></wm-button> 
+                <wm-button class="btn-default" caption="Save" type="button" margin="unset 0.5em" name="button16" width="70" on-click="button16Click($event, $scope)"></wm-button> 
+            </wm-dialogactions> 
+            <wm-composite name="composite3"> 
+                <wm-container name="container3" opacity="1"> 
+                    <wm-radioset height="auto" name="radioset1" dataset="bind:Variables.statRadiosetForDyejob.dataSet" layout="inline" datafield="dataValue" displayfield="name" selectedvalue="bind:Variables.statRadiosetForDyejob.dataSet[0].dataValue" on-click="radioset1Click($event, $scope)"></wm-radioset> 
+                </wm-container> 
+            </wm-composite> 
+            <wm-layoutgrid name="layoutgrid10"> 
+                <wm-gridrow name="gridrow30"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn222"> 
+                        <wm-label padding="unset 0.5em" caption="Dyejob" name="label207" class="col-md-3 control-label" margin="unset 5px unset unset" width="130" textalign="right"></wm-label> 
+                        <wm-text name="txtDyejob" width="120" maxchars="9"></wm-text> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn223"> 
+                        <wm-label padding="unset 0.5em" caption="Order No" name="label208" class="col-md-3 control-label" width="130" textalign="right" margin="unset 5px unset unset"></wm-label> 
+                        <wm-text name="txtOrdnum" width="120" maxchars="12"></wm-text> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow31"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn224"> 
+                        <wm-label padding="unset 0.5em" caption="Garment" name="label209" class="col-md-3 control-label" width="130" margin="unset 5px unset unset" textalign="right"></wm-label> 
+                        <wm-text name="txtGarment" width="120" maxchars="2" type="text"></wm-text> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn225"> 
+                        <wm-label padding="unset 0.5em" caption="Colour" name="label210" class="col-md-3 control-label" margin="unset 5px unset unset" textalign="right" width="130"></wm-label> 
+                        <wm-text name="txtColour" width="120" maxchars="3" type="number"></wm-text> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow32"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn226"> 
+                        <wm-label padding="unset 0.5em" name="label212" class="col-md-3 control-label" caption="Fabric" textalign="right" margin="unset 5px unset unset" width="130"></wm-label> 
+                        <wm-text name="txtFabric" width="120" type="number" maxchars="3"></wm-text> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn227"> 
+                        <wm-label padding="unset 0.5em" name="label214" class="col-md-3 control-label" textalign="right" margin="unset 5px unset unset" caption="Cut Unit" width="130"></wm-label> 
+                        <wm-composite name="composite2"> 
+                            <wm-select name="selectCutUnt" width="120" dataset="bind:Variables.svQryCutlcn.dataSet" datafield="lcncod" displayfield="lcncod"></wm-select> 
+                        </wm-composite> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow33"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn228"> 
+                        <wm-label padding="unset 0.5em" name="lblRefDyejob" class="col-md-3 control-label" textalign="right" margin="unset 5px unset unset" width="130" caption="Reference Dyejob :"></wm-label> 
+                        <wm-text name="txtRdyejob" width="120"></wm-text> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn229"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-dialog> 
+    </wm-view> 
+</wm-page>

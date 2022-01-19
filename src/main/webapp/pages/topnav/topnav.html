@@ -1,0 +1,24 @@
+<wm-partial data-ng-controller="topnavPageController" name="topnav" type="topnav"> 
+    <wm-navbar show="bind:((pageParams.p_param ==null)?true:false)" name="navbar1"> 
+        <wm-nav name="leftTopLinks" type="navbar" class="navbar-left"> 
+            <wm-nav-item name="nav_item6_1"> 
+                <wm-anchor hyperlink="bind:Variables.srvCu100pk0SprocCallMainPage.dataSet.pmakeupMainpage[$i].syspdes" caption="Home" iconclass="wi wi-home" name="homeLink"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="list_home"> 
+                <wm-anchor caption="Cutting - Fabric Received" name="anchor6_1" iconclass="" on-click="Actions.goToPage_CuttingFabReceived.invoke()"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="list_services"> 
+                <wm-anchor on-click="Actions.goToPage_LastJobRemarks.invoke()" caption="Last Job Remarks" name="orderLink" iconclass=""></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="nav_item5"> 
+                <wm-anchor on-click="Actions.goToPage_QueryCuttingBySize.invoke()" caption="Query Cutting By Size" iconclass="" name="anchor5"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="nav_item6"> 
+                <wm-anchor on-click="Actions.goToPage_QueryCuttingJobs.invoke()" caption="Query Cutting Jobs" iconclass="" name="anchor6"></wm-anchor> 
+            </wm-nav-item> 
+            <wm-nav-item name="nav_item7"> 
+                <wm-anchor on-click="Actions.goToPage_QueryJobTransfers.invoke()" caption="Query Job Transfers" iconclass="" name="anchor7"></wm-anchor> 
+            </wm-nav-item> 
+        </wm-nav> 
+    </wm-navbar> 
+</wm-partial>

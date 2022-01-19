@@ -1,0 +1,1373 @@
+{
+  "procCU1000PK0_QryCUFabReceived" : {
+    "procedureString" : "CALL CU1000PK0.sproc_qry_CUFabreceived(?,?,? ,? ,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1402960A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "003032868",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCutsts",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "C",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "poutCuFabRecv",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU210PK0_CancelCU_Transfer" : {
+    "procedureString" : "CALL CU210PK0.sproc_cancel_cutransfer(?,?, \n                                  ?,?, \n                                  ?,?)",
+    "parameters" : [ {
+      "name" : "p_sdyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_ddyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_dordnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_sfabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_usrid",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_reason",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  },
+  "procCU1000pk0_qryJobCutOrder" : {
+    "procedureString" : "CALL cu1000pk0.sproc_qry_jobscut_orderdet(upper(?) , ? , ? , ?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "SERVER",
+      "variableName" : "USER_NAME",
+      "testValue" : "d0004",
+      "required" : true,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "CU100W05",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1800502%",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "002827404",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutOrderDetail",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : true,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_UpdFabReceived" : {
+    "procedureString" : "CALL CU1000PK0.sproc_upd_fabreceived(?, ?, ?,?, ?, ?, ?, ?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "003032868",
+      "required" : true,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pFabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pRecseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pNewCutsts",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pNewKgsWgh",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1.1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pNewRemarks",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  },
+  "procCU900pk0_InsNewDyejob" : {
+    "procedureString" : "CALL cu900pk0.sproc_ins_new_dyejob(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    "parameters" : [ {
+      "name" : "pUsrid",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "D00026",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pPrgid",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002727551",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGmtseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pClrseqg",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pFabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "2",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCutlcn",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "NP5",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pRdyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002727551",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  },
+  "procCU1000PK0_QueryJobscut" : {
+    "procedureString" : "CALL CU1000PK0.sproc_query_jobscut(?, ?, ?,?, ?, ?, ?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "D00026",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "T",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1201077A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pFabseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "001847593",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutOrderDetail",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    }, {
+      "name" : "pOutJobscutList",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_LastJobRemarksDetail" : {
+    "procedureString" : "CALL CU1000PK0.sproc_LastJobRemarksDetail(?, ?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1704831B",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCLRSEQG",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGMTSEQ",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutDetailBlock",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU100PK0_GetLastRemDet" : {
+    "procedureString" : "CALL CU1000PK0.sproc_LastJobRemarksDetail(?, ?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "u",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "u",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1704831A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCLRSEQG",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGMTSEQ",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutDetailBlock",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_GetCU900AvailMarkers" : {
+    "procedureString" : "CALL CU1000PK0.sproc_get_cu900AvailMarkers(?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "D00026",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "CU1000W04",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDYEJOB",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002727551",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutMarker",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU210PK0_QueryJobTransfers" : {
+    "procedureString" : "CALL CU210PK0.sproc_Query_Job_Transfers(?, ?,?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pSORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pSDYEJOB",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002715265",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDDYEJOB",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002722683",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutJobTransfers",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU210PK0_UpdCqReamrks" : {
+    "procedureString" : "CALL CU210PK0.sproc_upd_cqreamrks(?, ?,?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pSDYEJOB",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002692861",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pSFABSEQ",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDDYEJOB",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "003033011",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pTRFTYP",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "T",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCQREMARKS",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "TEST TEST TEST",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  },
+  "procCU1000PK0_LastJobRemarks" : {
+    "procedureString" : "CALL CU1000PK0.sproc_LastJobRemarks(?, ?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCLRSEQ",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGMTSEQ",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutJobRemarks",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : null,
+      "required" : true,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_sproc_get_lastremark_cutsts" : {
+    "procedureString" : "CALL CU1000PK0.sproc_get_lastremark_cutsts(?)",
+    "parameters" : [ {
+      "name" : "pOutCutsts",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : true,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU900pk0_CreateAutoMarker" : {
+    "procedureString" : "CALL cu900pk0.sproc_create_automarker(?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    "parameters" : [ {
+      "name" : "p_dyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002727551",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_gmtseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_clrseqg",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_fabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_cutseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "2",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_ordnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_modelvariant",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_model_fabtyp",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_fabcode",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_fromwid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_towid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "2",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_lcncod",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_usrid",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_stage",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_fabconstraint",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_night_schedule",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  },
+  "procCU1000PK0_GetCU900Dyejob" : {
+    "procedureString" : "CALL CU1000PK0.sproc_get_cu900Dyejob(?,?,?,?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "D00026",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "CU1000W04",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pDYEJOB",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002727551",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pFROMDATE",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "2016-06-29",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pTODATE",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "2016-06-30",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pFilterType",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "WIP",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutDyejobs",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_QryCutBySize_OrderDet" : {
+    "procedureString" : "CALL CU1000PK0.sproc_qry_cutBySize_orderDet(?, ?, \n                                       ?, ?, ?, ?,\n                                       ?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1400894A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pColour",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGarment",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutOrderDet",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    }, {
+      "name" : "pOutSizes",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU900pk0_InsSizes" : {
+    "procedureString" : "CALL cu900pk0.sproc_ins_sizes(?, ?, ?, ?, ?, ?)",
+    "parameters" : [ {
+      "name" : "p_dyejob",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "002727551",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_gmtseq",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_clrseqg",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_fabseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_cutseq",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "3",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "p_ordnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1702581A",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  },
+  "procCu1000pk0psproc_call_makeupmain_page" : {
+    "procedureString" : "CALL cu1000pk0.sproc_call_makeupmain_page(?)",
+    "parameters" : [ {
+      "name" : "pMakeupMainpage",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : true,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_QryCuttingBySize" : {
+    "procedureString" : "CALL CU1000PK0.sproc_qry_cuttingBySize(upper(?), ?, \n                                     ?, ?, ?,?,\n                                     ?, ?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "SERVER",
+      "variableName" : "USER_NAME",
+      "testValue" : "d004",
+      "required" : true,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1702581B",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pColour",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGarment",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "A",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pFabcat",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "F",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutCutbySize",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    }, {
+      "name" : "pOutQtyord",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : true,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_OrszSizes" : {
+    "procedureString" : "CALL CU1000PK0.sproc_qry_orszsizes(?, ?,? ,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOrdnum",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1702581B",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pOutOrszSizes",
+      "type" : "cursor",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : null,
+      "required" : false,
+      "parameterType" : "OUT"
+    } ]
+  },
+  "procCU1000PK0_UpdRemarks" : {
+    "procedureString" : "CALL CU1000PK0.sproc_UpdRemarks(?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    "parameters" : [ {
+      "name" : "pUserId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pProgId",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pORDNUM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCLRSEQG",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "1",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pGMTSEQ",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCUTREM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCUTLCN",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCUTSTS",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pMAKREM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pULDREM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pEMBREM",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pCUTEXC",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pMAKEXC",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pULDEXC",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "pEMBEXC",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : null,
+      "testValue" : "t",
+      "required" : false,
+      "parameterType" : "IN"
+    } ]
+  }
+}

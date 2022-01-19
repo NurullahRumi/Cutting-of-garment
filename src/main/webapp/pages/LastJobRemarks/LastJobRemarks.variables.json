@@ -1,0 +1,229 @@
+{
+  "notifMsg" : {
+    "_id" : "wm-notifMsg-wm.NotificationVariable-1509523134191",
+    "name" : "notifMsg",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "alerttype",
+      "value" : "information",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "statPrgid" : {
+    "_id" : "wm-statPrgid-wm.Variable-1509514168655",
+    "name" : "statPrgid",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000W15",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statPrgName" : {
+    "_id" : "wm-statPrgName-wm.Variable-1509514210485",
+    "name" : "statPrgName",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Last Job Remarks",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svCU100PK0_GetLastRemDet" : {
+    "_id" : "wm-svCU100PK0_GetLastRemDet-wm.ServiceVariable-1527922931881",
+    "name" : "svCU100PK0_GetLastRemDet",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pORDNUM",
+      "value" : "bind:Widgets.grid1.selecteditem.ordnum",
+      "type" : "string"
+    }, {
+      "target" : "pCLRSEQG",
+      "value" : "bind:Widgets.grid1.selecteditem.clrseq",
+      "type" : "integer"
+    }, {
+      "target" : "pGMTSEQ",
+      "value" : "bind:Widgets.grid1.selecteditem.gmtseq",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu100pk0GetLastRemDetResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU100PK0_GetLastRemDet",
+    "operationId" : "ProcedureExecutionController_executeProcCU100PK0_GetLastRemDet",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCu1000pK0_get_lastremark_cuts" : {
+    "_id" : "wm-svProcCu1000pK0_get_lastremark_cuts-wm.ServiceVariable-1527597267726",
+    "name" : "svProcCu1000pK0_get_lastremark_cuts",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0SprocGetLastremarkCutstsResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_sproc_get_lastremark_cutsts",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_sproc_get_lastremark_cutsts",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU1000PK0_LastJobRemarks" : {
+    "_id" : "wm-svProcCU1000PK0_LastJobRemarks-wm.ServiceVariable-1509519320284",
+    "name" : "svProcCU1000PK0_LastJobRemarks",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUserId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgName.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pORDNUM",
+      "value" : "bind:Widgets.form1.formWidgets.pORDNUM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pCLRSEQ",
+      "value" : "bind:Widgets.form1.formWidgets.pCLRSEQ.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "pGMTSEQ",
+      "value" : "bind:Widgets.form1.formWidgets.pGMTSEQ.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0LastJobRemarksResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_LastJobRemarks",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_LastJobRemarks",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU1000PK0_UpdRemarks" : {
+    "_id" : "wm-svProcCU1000PK0_UpdRemarks-wm.ServiceVariable-1509596598193",
+    "name" : "svProcCU1000PK0_UpdRemarks",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUserId",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pCUTREM",
+      "value" : "bind:Widgets.txtCUTREM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pCUTLCN",
+      "value" : "bind:Widgets.txtCUTLCN.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pCUTSTS",
+      "value" : "bind:Widgets.selectCUTSTS.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pMAKREM",
+      "value" : "bind:Widgets.txtMAKREM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pULDREM",
+      "value" : "bind:Widgets.txtULDREM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pEMBREM",
+      "value" : "bind:Widgets.txtEMBREM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pCUTEXC",
+      "value" : "bind:Widgets.chkBoxCUTEXC.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pMAKEXC",
+      "value" : "bind:Widgets.chkBoxMAKEXC.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pULDEXC",
+      "value" : "bind:Widgets.chkBoxULDEXC.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pEMBEXC",
+      "value" : "bind:Widgets.chkBoxEMBEXC.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pORDNUM",
+      "value" : "bind:Widgets.grid1.selecteditem.ordnum",
+      "type" : "string"
+    }, {
+      "target" : "pCLRSEQG",
+      "value" : "bind:Widgets.grid1.selecteditem.clrseq",
+      "type" : "integer"
+    }, {
+      "target" : "pGMTSEQ",
+      "value" : "bind:Widgets.grid1.selecteditem.gmtseq",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_UpdRemarks",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_UpdRemarks",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU1000PK0_UpdRemarksonSuccess($event, $scope)",
+    "onError" : "svProcCU1000PK0_UpdRemarksonError($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  }
+}

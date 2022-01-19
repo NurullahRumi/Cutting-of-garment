@@ -1,0 +1,283 @@
+{
+  "appNotification" : {
+    "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
+    "name" : "appNotification",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "goToPage_CuttingFabReceived" : {
+    "_id" : "wm-goToPage_CuttingFabReceived-wm.NavigationVariable-1508040456308",
+    "name" : "goToPage_CuttingFabReceived",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "CuttingFabReceived",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_JobsToBeCut" : {
+    "_id" : "wm-goToPage_JobsToBeCut-wm.NavigationVariable-1509959454533",
+    "name" : "goToPage_JobsToBeCut",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "JobsToBeCut",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_LastJobRemarks" : {
+    "_id" : "wm-goToPage_LastJobRemarks-wm.NavigationVariable-1509514012222",
+    "name" : "goToPage_LastJobRemarks",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "LastJobRemarks",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Main" : {
+    "_id" : "wm-wm.NavigationVariable1389180517517",
+    "name" : "goToPage_Main",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "operation" : "gotoPage",
+    "pageName" : "Main"
+  },
+  "goToPage_QueryCuttingBySize" : {
+    "_id" : "wm-goToPage_QueryCuttingBySize-wm.NavigationVariable-1507691112283",
+    "name" : "goToPage_QueryCuttingBySize",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "QueryCuttingBySize",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "QueryCuttingBySize",
+    "dataSet" : [ {
+      "type" : "string",
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.livelist1.selectedItemWidgets.lblCurrentOrdnum.caption"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_QueryCuttingJobs" : {
+    "_id" : "wm-goToPage_QueryCuttingJobs-wm.NavigationVariable-1507435356987",
+    "name" : "goToPage_QueryCuttingJobs",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "QueryCuttingJobs",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_QueryJobTransfers" : {
+    "_id" : "wm-goToPage_QueryJobTransfers-wm.NavigationVariable-1508296134343",
+    "name" : "goToPage_QueryJobTransfers",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "QueryJobTransfers",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "loggedInUser" : {
+    "_id" : "wm-loggedInUser-wm.Variable-1491820915544",
+    "name" : "loggedInUser",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "",
+      "id" : "",
+      "tenantId" : "",
+      "isAuthenticated" : false,
+      "isSecurityEnabled" : true,
+      "roles" : [ ]
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "loginAction" : {
+    "_id" : "wm-loginVariable-wm.LoginVariable-1491820915542",
+    "name" : "loginAction",
+    "owner" : "App",
+    "category" : "wm.LoginVariable",
+    "dataBinding" : [ {
+      "target" : "username",
+      "value" : "bind:Widgets.usernametext.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "password",
+      "value" : "bind:Widgets.passwordtext.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "rememberme",
+      "value" : "bind:Widgets.remembermecheck.datavalue",
+      "type" : "boolean"
+    } ],
+    "dataSet" : {
+      "username" : "",
+      "password" : "",
+      "rememberme" : false
+    },
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "onError" : "loginVariableonError($event, $s)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "useDefaultSuccessHandler" : true
+  },
+  "logoutAction" : {
+    "_id" : "wm-logoutVariable-wm.LogoutVariable-1491820915543",
+    "name" : "logoutAction",
+    "owner" : "App",
+    "category" : "wm.LogoutVariable",
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "redirectTo" : "Main",
+    "useDefaultSuccessHandler" : true
+  },
+  "statAppid" : {
+    "_id" : "wm-statAppid-wm.Variable-1491892023921",
+    "name" : "statAppid",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000WB"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statAppName" : {
+    "_id" : "wm-statAppname-wm.Variable-1491892046987",
+    "name" : "statAppName",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Cutting"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statAppUsrid" : {
+    "_id" : "wm-statUsrid-wm.Variable-1492235227154",
+    "name" : "statAppUsrid",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:Variables.loggedInUser.dataSet.name.toUpperCase()",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statUsrlcncod" : {
+    "_id" : "wm-statUsrlcncod-wm.Variable-1519900724469",
+    "name" : "statUsrlcncod",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:Variables.svGetUserLocation.dataSet.lcncod",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statUsrscncod" : {
+    "_id" : "wm-statUsrscncod-wm.Variable-1519900962790",
+    "name" : "statUsrscncod",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:Variables.svGetUserLocation.dataSet.scncod",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svGetUserLocation" : {
+    "_id" : "wm-svGetUserLocation-wm.ServiceVariable-1519901630772",
+    "name" : "svGetUserLocation",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUsrid",
+      "value" : "bind:Variables.loggedInUser.dataSet.name.toUpperCase()",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryUserLocationResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryUserLocation",
+    "operationId" : "QueryExecutionController_executeQryUserLocation",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

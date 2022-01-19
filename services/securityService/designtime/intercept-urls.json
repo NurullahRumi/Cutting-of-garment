@@ -1,0 +1,41 @@
+[ {
+  "urlPattern" : "/pages/CuttingFabReceived/**",
+  "permission" : "Role",
+  "roles" : [ "CUFABRECV_VIEWPAGE" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/LastJobRemarks/**",
+  "permission" : "Role",
+  "roles" : [ "QRYLASTJOBREMARKS" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Login/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Main/**",
+  "permission" : "Role",
+  "roles" : [ "admin" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/QueryCuttingBySize/**",
+  "permission" : "Role",
+  "roles" : [ "QRYCUTTINGPROD" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/QueryCuttingJobs/**",
+  "permission" : "Role",
+  "roles" : [ "QRYCUTTINGJOBS" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/QueryJobTransfers/**",
+  "permission" : "Role",
+  "roles" : [ "QRYJOBTRANSFER" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/**",
+  "permission" : "Authenticated",
+  "roles" : null,
+  "httpMethod" : null
+} ]

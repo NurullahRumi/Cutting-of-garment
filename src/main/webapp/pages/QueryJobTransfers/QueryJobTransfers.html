@@ -1,0 +1,112 @@
+<wm-page data-ng-controller="QueryJobTransfersPageController" pagetitle="Query Job Transfers" name="page1"> 
+    <wm-header content="header" name="header1"> 
+        <wm-param name="pTitle" value="bind:Variables.statPrgName.dataSet.dataValue" type="string"></wm-param> 
+    </wm-header> 
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-form dataset="bind:Variables.svProcCU210PK0_QueryJobTransfers.dataSet.poutJobTransfers" errormessage="" captionposition="top" title="" enctype="application/x-www-form-urlencoded" method="get" captionalign="left" name="form1" width="1000" postmessage=""> 
+                <wm-layoutgrid columns="1" name="layoutgrid1"> 
+                    <wm-gridrow name="gridrow1"> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn1"> 
+                            <wm-form-field updateon="default" on-change="pSORDNUMChange($event, $scope, newVal, oldVal)" name="pSORDNUM" readonly="false" displayname="Source Order No" key="pSORDNUM" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value" defaultvalue="bind:pageParams.pOrdnum"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn5"> 
+                            <wm-form-field on-change="pSDYEJOBChange($event, $scope, newVal, oldVal)" name="pSDYEJOB" readonly="false" displayname="Source Dyejob" key="pSDYEJOB" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="2" name="gridcolumn6"> 
+                            <wm-form-field updateon="default" on-change="pDORDNUMChange($event, $scope, newVal, oldVal)" name="pDORDNUM" readonly="false" displayname="Destination Order No" key="pDORDNUM" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn7"> 
+                            <wm-form-field on-change="pDDYEJOBChange($event, $scope, newVal, oldVal)" name="pDDYEJOB" readonly="false" displayname="Destination Dyejob" key="pDDYEJOB" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                        </wm-gridcolumn> 
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn8"> 
+                            <wm-buttongroup horizontalalign="left" class="form-action col-md-12" name="buttongroup1" padding="20px unset unset unset"> 
+                                <wm-button caption="Query" type="submit" class="btn-primary" name="button3" on-click="button3Click($event, $scope)"></wm-button> 
+                                <wm-button caption="Clear Filter" type="reset" class="btn-secondary" name="button1" on-click="button1Click($event, $scope)"></wm-button> 
+                            </wm-buttongroup> 
+                        </wm-gridcolumn> 
+                    </wm-gridrow> 
+                </wm-layoutgrid> 
+            </wm-form> 
+            <wm-table title="" dataset="bind:Variables.svProcCU210PK0_QueryJobTransfers.dataSet.poutJobTransfers" navigation="None" name="grid1" height="450" gridfirstrowselect="true" spacing="condensed"> 
+                <wm-table-column-group col-class="theme-a3" caption="Source" name="group"> 
+                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="80px" caption="Dyejob" binding="sdyejob"></wm-table-column> 
+                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="80px" caption="Order" binding="sordnum"></wm-table-column> 
+                    <wm-table-column-group caption="Colour" name="group2"> 
+                        <wm-table-column readonly="false" show="true" type="byte" edit-widget-type="number" textalignment="right" width="30px" caption="Seq" binding="sclrseq"></wm-table-column> 
+                        <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="100px" caption="Desc" binding="clrabb"></wm-table-column> 
+                    </wm-table-column-group> 
+                    <wm-table-column-group caption="Fabric" name="group3"> 
+                        <wm-table-column readonly="false" show="true" type="byte" edit-widget-type="number" textalignment="right" width="30px" caption="Seq" binding="sfabseq"></wm-table-column> 
+                        <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="40px" caption="Ind" binding="sfabind"></wm-table-column> 
+                        <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="80px" caption="Fab Type" binding="sfabtyp"></wm-table-column> 
+                    </wm-table-column-group> 
+                </wm-table-column-group> 
+                <wm-table-column-group col-class="theme-a4" caption="Destination" name="group1"> 
+                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="80px" caption="Dyejob" binding="ddyejob"></wm-table-column> 
+                    <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="80px" caption="Order" binding="dordnum"></wm-table-column> 
+                    <wm-table-column readonly="false" show="true" type="byte" edit-widget-type="number" textalignment="right" width="40px" caption="Fab" binding="dfabseq"></wm-table-column> 
+                    <wm-table-column readonly="false" show="true" type="byte" edit-widget-type="number" textalignment="right" width="40px" caption="Clr" binding="dclrseq"></wm-table-column> 
+                </wm-table-column-group> 
+                <wm-table-column readonly="false" show="true" formatpattern="toDate" datepattern="dd-MMM-yyyy HH:mm" type="datetime" edit-widget-type="datetime" width="120px" caption="Transfer Date" binding="trfdat"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="double" edit-widget-type="number" textalignment="right" width="60px" caption="Amount Transf" binding="trfqty"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="60px" caption="Cut Unit" binding="cutlcn"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="60px" caption="MkUp Unit" binding="wdmaklcn"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="200px" caption="Reason For Transfer" binding="reason"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" textalignment="center" width="50px" caption="Trn Typ" binding="trftyp"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="60px" caption="Approved</br>By" binding="appid"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="60px" caption="Created</br> By" binding="recid"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" type="string" edit-widget-type="text" width="150px" caption="CQ Remarks" binding="cqremarks"></wm-table-column> 
+                <wm-table-column readonly="false" show="true" searchable="false" accessroles="CUTTRANSFER_UPDREM" type="string" edit-widget-type="text" width="80px" widget-type="button" caption="Update CQ Remarks" binding="customField"> 
+                    <wm-button caption="{{row.getProperty('customField') || 'Update'}}" show="true" class="btn-sm btn-primary" iconclass="" on-click="customFieldAction(selectedItemData)" data-ng-class=""></wm-button> 
+                </wm-table-column> 
+                <wm-table-column readonly="false" show="true" searchable="false" accessroles="CUTTRANSFER_CANCEL" type="string" edit-widget-type="text" width="80px" widget-type="button" caption="Cancel Transfer" binding="customField1"> 
+                    <wm-button caption="{{row.getProperty('customField1') || 'Cancel'}}" show="{{ShowHide(row.trftyp,row.status,row.cuntrow)}}" class="btn-sm btn-primary" iconclass="" on-click="customField1Action(selectedItemData)" data-ng-class=""></wm-button> 
+                </wm-table-column> 
+            </wm-table> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+    <wm-view name="notificationAlertDialogView" class="dialog-view"> 
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog> 
+    </wm-view> 
+    <wm-view class="dialog-view" name="view2"> 
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Update CQ remarks" iconclass="wi wi-edit" name="dialogUpdRmk"> 
+            <wm-layoutgrid name="layoutgrid2"> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6_1"> 
+                        <wm-label padding="unset 0.5em" caption="CQ Remarks:" name="label1" class="col-md-3 control-label" width="120"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="9" name="gridcolumn7_1"> 
+                        <wm-text name="txtUpdrmk" maxchars="200"></wm-text> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+            <wm-dialogactions name="dialogactions1"> 
+                <wm-button class="btn-primary" caption="Cancel" on-click="closeDialog()" name="button3_1"></wm-button> 
+                <wm-button class="btn-default" caption="Update" type="button" margin="unset 0.5em" name="button4" on-click="button4Click($event, $scope)"></wm-button> 
+            </wm-dialogactions> 
+        </wm-dialog> 
+    </wm-view> 
+    <wm-view class="dialog-view" name="view3"> 
+        <wm-dialog dialogtype="design-dialog" modal="true" title="Cancel Job Transfer" iconclass="wi wi-edit" name="dialogReason"> 
+            <wm-layoutgrid name="layoutgrid4"> 
+                <wm-gridrow name="gridrow5"> 
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn12"> 
+                        <wm-label padding="unset 0.5em" caption="Reason for cancel of job Transfer" name="label2" class="col-md-3 control-label" width="300"></wm-label> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow5_1"> 
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn13_1"> 
+                        <wm-text name="txtReason" maxchars="60"></wm-text> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+            <wm-dialogactions name="dialogactions2"> 
+                <wm-button class="btn-primary" caption="Cancel" on-click="closeDialog()" name="button6"></wm-button> 
+                <wm-button class="btn-default" caption="Save" type="button" margin="unset 0.5em" name="button7" on-click="button7Click($event, $scope)"></wm-button> 
+            </wm-dialogactions> 
+        </wm-dialog> 
+    </wm-view> 
+</wm-page>

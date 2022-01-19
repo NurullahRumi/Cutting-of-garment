@@ -1,0 +1,203 @@
+{
+  "notifMsg" : {
+    "_id" : "wm-notifMsg-wm.NotificationVariable-1507712553553",
+    "name" : "notifMsg",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "alerttype",
+      "value" : "information",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "radioFabCategory" : {
+    "_id" : "wm-radioFabCategory-wm.Variable-1507784990415",
+    "name" : "radioFabCategory",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "Main",
+      "dataValue" : "F"
+    }, {
+      "name" : "Ribs",
+      "dataValue" : "R"
+    }, {
+      "name" : "Trims",
+      "dataValue" : "T"
+    }, {
+      "name" : "Contrasts",
+      "dataValue" : "CONTRAST"
+    }, {
+      "name" : "Additional Cutting Jobs",
+      "dataValue" : "ADDCUT"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "statCountFilteredRows" : {
+    "_id" : "wm-statCountFilteredRows-wm.Variable-1544759539754",
+    "name" : "statCountFilteredRows",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:$scope.Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutCutbySize.length"
+    } ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statOrdSize" : {
+    "_id" : "wm-statOrdSize-wm.Variable-1544173676648",
+    "name" : "statOrdSize",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "sizedes" : "",
+      "clireflectra" : ""
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "statPrgid" : {
+    "_id" : "wm-statPrgid-wm.Variable-1507691161377",
+    "name" : "statPrgid",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000W02",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statPrgName" : {
+    "_id" : "wm-statPrgName-wm.Variable-1507691199082",
+    "name" : "statPrgName",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Query Cutting by Size",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statTgridCountJob" : {
+    "_id" : "wm-statSizes-wm.Variable-1508134974345",
+    "name" : "statTgridCountJob",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:Variables.svProcCU1000PK0_QryCuttingBySize.dataSet.poutCutbySize.length"
+    } ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svProcCU1000PK0_QryCutBySize_OrderDet" : {
+    "_id" : "wm-sv-wm.ServiceVariable-1507701078930",
+    "name" : "svProcCU1000PK0_QryCutBySize_OrderDet",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.form1.formWidgets.pOrdnum.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pColour",
+      "value" : "bind:Widgets.form1.formWidgets.pColour.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "pGarment",
+      "value" : "bind:Widgets.form1.formWidgets.pGarment.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0QryCutBySizeOrderDetResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_QryCutBySize_OrderDet",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_QryCutBySize_OrderDet",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU1000PK0_QryCutBySize_OrderDetonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU1000PK0_QryCuttingBySize" : {
+    "_id" : "wm-svProcCU1000PK0_QryCuttingBySize-wm.ServiceVariable-1507699366378",
+    "name" : "svProcCU1000PK0_QryCuttingBySize",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pOrdnum",
+      "value" : "bind:Widgets.grid1.selecteditem.ordnum",
+      "type" : "string"
+    }, {
+      "target" : "pColour",
+      "value" : "bind:Widgets.grid1.selecteditem.clrseq",
+      "type" : "integer"
+    }, {
+      "target" : "pGarment",
+      "value" : "bind:Widgets.grid1.selecteditem.gmtseq",
+      "type" : "string"
+    }, {
+      "target" : "pFabcat",
+      "value" : "bind:Widgets.radioset1.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu1000pk0QryCuttingBySizeResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU1000PK0_QryCuttingBySize",
+    "operationId" : "ProcedureExecutionController_executeProcCU1000PK0_QryCuttingBySize",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onBeforeUpdate" : "svProcCU1000PK0_QryCuttingBySizeonBeforeUpdate($event, $scope)",
+    "onSuccess" : "svProcCU1000PK0_QryCuttingBySizeonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  }
+}

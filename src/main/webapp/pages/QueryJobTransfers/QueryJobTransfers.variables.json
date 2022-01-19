@@ -1,0 +1,220 @@
+{
+  "notifMsg" : {
+    "_id" : "wm-notifMsg-wm.NotificationVariable-1508304364633",
+    "name" : "notifMsg",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "alerttype",
+      "value" : "information",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "statPrgid" : {
+    "_id" : "wm-statPrgid-wm.Variable-1508296200808",
+    "name" : "statPrgid",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "CU1000W11",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "statPrgName" : {
+    "_id" : "wm-statPrgName-wm.Variable-1508296230712",
+    "name" : "statPrgName",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "Query and Cancel Job Transfers",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svProcCU210PK0_CancelCU_Transfer" : {
+    "_id" : "wm-svProcCU210PK0_CancelCU_Transfer-wm.ServiceVariable-1509512632117",
+    "name" : "svProcCU210PK0_CancelCU_Transfer",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "p_sdyejob",
+      "value" : "bind:Widgets.grid1.selecteditem.sdyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_ddyejob",
+      "value" : "bind:Widgets.grid1.selecteditem.ddyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_dordnum",
+      "value" : "bind:Widgets.grid1.selecteditem.dordnum",
+      "type" : "string"
+    }, {
+      "target" : "p_sfabseq",
+      "value" : "bind:Widgets.grid1.selecteditem.sfabseq",
+      "type" : "integer"
+    }, {
+      "target" : "p_usrid",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "p_reason",
+      "value" : "bind:Widgets.txtReason.datavalue",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU210PK0_CancelCU_Transfer",
+    "operationId" : "ProcedureExecutionController_executeProcCU210PK0_CancelCU_Transfer",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU210PK0_CancelCU_TransferonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU210PK0_QueryJobTransfers" : {
+    "_id" : "wm-svProcCU1000PK0_QueryJobTransfers-wm.ServiceVariable-1508301207113",
+    "name" : "svProcCU210PK0_QueryJobTransfers",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pSORDNUM",
+      "value" : "bind:Widgets.form1.formWidgets.pSORDNUM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pSDYEJOB",
+      "value" : "bind:Widgets.form1.formWidgets.pSDYEJOB.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pDORDNUM",
+      "value" : "bind:Widgets.form1.formWidgets.pDORDNUM.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "pDDYEJOB",
+      "value" : "bind:Widgets.form1.formWidgets.pDDYEJOB.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.procedure.ProcCu210pk0QueryJobTransfersResponse",
+    "service" : "pfsdb",
+    "operation" : "executeProcCU210PK0_QueryJobTransfers",
+    "operationId" : "ProcedureExecutionController_executeProcCU210PK0_QueryJobTransfers",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svProcCU210PK0_UpdCqReamrks" : {
+    "_id" : "wm-svProcCU210PK0_UpdCqReamrks-wm.ServiceVariable-1508319825230",
+    "name" : "svProcCU210PK0_UpdCqReamrks",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "pUserId",
+      "value" : "bind:Variables.statAppUsrid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pProgId",
+      "value" : "bind:Variables.statPrgid.dataSet.dataValue",
+      "type" : "string"
+    }, {
+      "target" : "pSDYEJOB",
+      "value" : "bind:Widgets.grid1.selecteditem.sdyejob",
+      "type" : "string"
+    }, {
+      "target" : "pSFABSEQ",
+      "value" : "bind:Widgets.grid1.selecteditem.sfabseq",
+      "type" : "string"
+    }, {
+      "target" : "pDDYEJOB",
+      "value" : "bind:Widgets.grid1.selecteditem.ddyejob",
+      "type" : "string"
+    }, {
+      "target" : "pTRFTYP",
+      "value" : "bind:Widgets.grid1.selecteditem.trftyp",
+      "type" : "string"
+    }, {
+      "target" : "pCQREMARKS",
+      "value" : "bind:Widgets.txtUpdrmk.datavalue",
+      "type" : "string"
+    } ],
+    "service" : "pfsdb",
+    "operation" : "executeProcCU210PK0_UpdCqReamrks",
+    "operationId" : "ProcedureExecutionController_executeProcCU210PK0_UpdCqReamrks",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svProcCU210PK0_UpdCqReamrksonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  },
+  "svQryCU220_Trftyp" : {
+    "_id" : "wm-svQryCU220_Trftyp-wm.ServiceVariable-1511327459597",
+    "name" : "svQryCU220_Trftyp",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "p_Sdyejob",
+      "value" : "bind:Widgets.grid1.selecteditem.sdyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_Ddyejob",
+      "value" : "bind:Widgets.grid1.selecteditem.ddyejob",
+      "type" : "string"
+    }, {
+      "target" : "p_Sfabseq",
+      "value" : "bind:Widgets.grid1.selecteditem.sfabseq",
+      "type" : "integer"
+    } ],
+    "type" : "com.mu.cmt.pfs.pfsdb.models.query.QryCu220TrftypResponse",
+    "service" : "pfsdb",
+    "operation" : "executeQryCU220_Trftyp",
+    "operationId" : "QueryExecutionController_executeQryCU220_Trftyp",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

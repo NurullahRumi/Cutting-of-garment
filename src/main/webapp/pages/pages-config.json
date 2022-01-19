@@ -1,0 +1,87 @@
+[ {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "CuttingFabReceived",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "p_ordnum",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "JobsToBeCut",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "LastJobRemarks",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "pOrdnum",
+    "type" : "string"
+  }, {
+    "name" : "pParam1",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "QueryCuttingBySize",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "pOrdnum",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "QueryCuttingJobs",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "pOrdnum",
+    "type" : "string"
+  }, {
+    "name" : "pDyejob",
+    "type" : "string"
+  }, {
+    "name" : "pParam1",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "QueryJobTransfers",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "pOrdnum",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "HEADER",
+  "params" : [ {
+    "name" : "pTitle",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "TOPNAV",
+  "params" : [ {
+    "name" : "p_param",
+    "type" : "string"
+  } ]
+} ]
